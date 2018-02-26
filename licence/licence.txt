@@ -1,0 +1,14 @@
+The copyright of the Pareto Tracer belongs to Adanay Martín & Oliver Schütze. 
+You are free to use the Pareto Tracer for research purposes. All 
+publications which use this package or any code in the package should 
+acknowledge the use of "Pareto Tracer" and reference 
+"Pareto Tracer: a predictor–corrector method for multi-objective 
+optimization problems Adanay Martín & Oliver Schütze
+Engineering Optimization Vol. 50, Iss. 3, 2018"
+
+Notice that we provide the source code to you on an "as is" basis without 
+representations or warranties of any kind. You expressly agree that your 
+use of the source code is at your sole risk and we will not be liable for 
+any damages of any kind arising from the use of the source code.
+
+Copyright (c) 2018 Adanay Martín & Oliver Schütze.
