@@ -49,6 +49,8 @@ experiments always start on a randomly selected point on the Pareto set or close
 while the last point is a red star. For bi-objective problems, PT always goes left up first, and later it goes right down the optimal 
 curve.  
 
+![x_trace](img/readme_quad_n100_nobj2.png)
+
 ```
 >> x_trace.exact.misc.quad_n100_nobj2
 
