@@ -39,10 +39,10 @@ SIAM Journal on Optimization, 20(2):602–626, 2009.<br/>
 Several ready-to-use examples are provided, i.e., script files containing examples on how to call the PT main functions. The examples
 are all grouped in two packages called **`x_trace`** and **`x_min`**. The x stands for examples or experiments, and the rest of the
 folder name denotes which function is been tested. Additionally, the current experiments are grouped by the Hessian approximation 
-strategy utilized in the experiment and by the function benchmark name. Finally, there is one file per experiment, which is ready to use 
-by just clicking the Run button of the MATLAB interface. 
+strategy utilized in the experiment and by the function benchmark name. Finally, there is one file per experiment, **which is ready to use 
+by just clicking the Run button of the MATLAB interface**. 
 
-
+![x_trace](img/readme1.png)
   
 Both the plotted and printed results of running the script **`x_trace/exact/misc/quad_n100_nobj2.m`** are displayed below. The 
 experiments always start on a randomly selected point on the Pareto set or close to it. Note that the starting point is a blue star 
