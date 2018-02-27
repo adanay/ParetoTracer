@@ -3,7 +3,7 @@
 ## Introduction
 The Pareto Tracer (PT) is a predictor-corrector method for the numerical treatment of sufficiently smooth multi-objective optimization 
 problems (MOP). The algorithm performs a continuation along the set of (local) solutions of a given MOP with 𝑘 objectives and can cope 
-with equality and box constraints. 
+with equality and box constraints. The implementation to handle general inequalities is still under revision.
 For the detailed explanations of the algorithms behind the PT we refer to: 
 
 **[1]** A. Martín and O. Schütze<br/>
@@ -145,27 +145,27 @@ Both **`pt.trace`** and **`pt.minimize`** receive the following set of parameter
     - **`fx = objfun.f(x0)`**  % objective function
     - **`Jx = objfun.J(x0)`**  % Jacobian 
     - **`Hx = objfun.H(x0)`**  % Hessian
-    - **`Ax = lincon.A * x – lincon.b`**  % linear inequalities
+    - **`Ax = lincon.A * x – lincon.b`**  % linear inequalities (currently ignored)
     - **`Aeqx = lincon.Aeq * x – lincon.beq`**  % linear equalities
-    - **`cx = nonlcon.c(x0)`**  % nonlinear inequalities
+    - **`cx = nonlcon.c(x0)`**  % nonlinear inequalities (currently ignored)
     - **`ceqx = nonlcon.ceq(x0)`**  % nonlinear equalities
-    - **`dcx = norm(ax)^2 + norm(cx)^2`**  % square norm of the inequalities
+    - **`dcx = norm(ax)^2 + norm(cx)^2`**  % square norm of the inequalities (currently ignored)
     - **`dceqx = norm(aeqx)^2 + norm(ceqx)^2`**  % square norm of the equalities
-    - **`Jcx = nonlcon.Jc(x0)`**  % Jacobian of the nonlinear inequalities
+    - **`Jcx = nonlcon.Jc(x0)`**  % Jacobian of the nonlinear inequalities (currently ignored)
     - **`Jceqx = nonlcon.Jceq(x0)`**  % Jacobian of the nonlinear equalities
 
 -	**`lb, ub`**: Vectors that represent the box constraints in decision space. They must have n components or be empty.
 
 -	**`lincon`**: It must be either a cell array of matrices or a struct with these fields. I.e., **`lincon = {A, b, Aeq, beq}`** representing the linear inequality and equality constraints. They all can be empty.
-A is a matrix of size (na x n) where na is the number of linear inequalities.
-    - **`b`** is a vector of na components.
+    - **`A`** is a matrix of size (na x n) where na is the number of linear inequalities (currently ignored).
+    - **`b`** is a vector of na components (currently ignored).
     - **`Aeq`** is a matrix of size (naeq x n) where naeq is the number of linear equalities.
     - **`beq`** is a vector of naeq components.
 
 -	**`nonlcon`**: It must be either a cell array of function handles or a struct with these fields. I.e., **`nonlcon = {c, ceq, Jc, Jceq}`** representing the inequality and equality constraints together with their respective Jacobians. If the Jacobians are not provided, they will be approximated. nonlcon can also be a function handle. In this case, it will be assumed to be the nonlinear inequality constraints function only. I.e., nonlcon = c.
-    - **`c`** is a function handle of the form **`y = c(x)`** where x is a vector of n components and y is a vector of nc components.
+    - **`c`** is a function handle of the form **`y = c(x)`** where x is a vector of n components and y is a vector of nc components (currently ignored).
     - **`ceq`** is a function handle of the form **`y = ceq(x)`** where x is a vector of n components and y is a vector of nceq components.
-    - **`Jc`** is a function handle of the form **`y = Jc(x)`** where x is a vector of n components and y is a matrix of size (nc x n).
+    - **`Jc`** is a function handle of the form **`y = Jc(x)`** where x is a vector of n components and y is a matrix of size (nc x n) (currently ignored).
     - **`Jceq`** is a function handle of the form **`y = Jceq(x)`** where x is a vector of n components and y is a matrix of size (nceq x n).
 
 -	**`multfun`**: It must be either a cell array of function handles or a struct with these fields. I.e., **`multfun = {vH, Hw, Hwv}`** representing the Hessian multiply functions. They all can be empty. If specified, the multiply functions will be utilized instead of the Hessian function.
@@ -174,6 +174,8 @@ A is a matrix of size (na x n) where na is the number of linear inequalities.
     - **`Hwv`** is a function handle of the form **`y = Hwv(x, w, v)`** where **`y = (H1 * w1 + H2 * w2 + ... + Hnobj * wnobj) * v`**. The result y is a vector of n components.
 
 -	**`opts`**: This is a structure containing all the options that can be passed to the algorithms. There is a separate section dedicated to this. 
+
+**Important**: The implementation to handle general inequalities is still under revision. However, all functions are already prepared to receive general constraints. For now, all parameters related to inequalities are being ignored.
 
 ## Output
 Both **`pt.trace`** and **`pt.minimize`** return the same set of output parameters **`[result, stats, EXITFLAG]`** although the nature of these differs in both algorithms.
@@ -195,11 +197,11 @@ Both **`pt.trace`** and **`pt.minimize`** return the same set of output paramete
     - **`JCount`**: Number of Jacobian evaluations.
     - **`HCount`**: Number of Hessian evaluations.
     - **`vHCount, HwCount, HwvCount`**: Multiply function evaluations.
-    - **`aCount`**: Number of linear inequality constraint evaluations (A * x - b).
+    - **`aCount`**: Number of linear inequality constraint evaluations (A * x - b) (currently ignored).
     - **`aeqCount`**: Number of linear equality constraint evaluations (Aeq * x - beq).
-    - **`cCount`**: Number of nonlinear inequality constraint evaluations.
+    - **`cCount`**: Number of nonlinear inequality constraint evaluations (currently ignored).
     - **`ceqCount`**: Number of nonlinear equality constraint evaluations.
-    - **`JcCount`**: Number of nonlinear inequality constraint Jacobian evaluations.
+    - **`JcCount`**: Number of nonlinear inequality constraint Jacobian evaluations (currently ignored).
     - **`JceqCount`**: Number of nonlinear equality constraint Jacobian evaluations.
 
 -	**`EXITFLAG`**: Describes the exit condition.
@@ -235,11 +237,11 @@ Both **`pt.trace`** and **`pt.minimize`** return the same set of output paramete
     - **`JCount`**: Number of Jacobian evaluations.
     - **`HCount`**: Number of Hessian evaluations.
     - **`vHCount, HwCount, HwvCount`**: Multiply function evaluations.
-    - **`aCount`**: Number of linear inequality constraint evaluations (A * x - b).
+    - **`aCount`**: Number of linear inequality constraint evaluations (A * x - b) (currently ignored).
     - **`aeqCount`**: Number of linear equality constraint evaluations (Aeq * x - beq).
-    - **`cCount`**: Number of nonlinear inequality constraint evaluations.
+    - **`cCount`**: Number of nonlinear inequality constraint evaluations (currently ignored).
     - **`ceqCount`**: Number of nonlinear equality constraint evaluations.
-    - **`JcCount`**: Number of nonlinear inequality constraint Jacobian evaluations.
+    - **`JcCount`**: Number of nonlinear inequality constraint Jacobian evaluations (currently ignored).
     - **`JceqCount`**: Number of nonlinear equality constraint Jacobian evaluations.
 
 -	**`EXITFLAG`**: Describes the exit condition.
