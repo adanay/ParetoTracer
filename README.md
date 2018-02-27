@@ -175,4 +175,79 @@ A is a matrix of size (na x n) where na is the number of linear inequalities.
 
 -	**`opts`**: This is a structure containing all the options that can be passed to the algorithms. There is a separate section dedicated to this. 
 
+## Output
+Both **`pt.trace`** and **`pt.minimize`** return the same set of output parameters **`[result, stats, EXITFLAG]`** although the nature of these differs in both algorithms.
+
+### pt.trace Output
+-	**`result`**: Describes the solution. It is a struct with the following fields:
+    - **`ps`**: The (local) Pareto set of the problem: A matrix of size (m x n) where m is the number of solutions found and n is the number of variables.
+    - **`pf`**: The (local) Pareto front of the problem: A matrix of size (m x nobj) where m is the number of solutions found and nobj is the number of objectives.
+
+-	**`Stats`**: Statistics.
+    - **`Count`**: Number of solutions found.
+    - **`PCIts`**: Number of iterations taken by the continuation algorithm, where each iteration consists of 
+        - one predictor stage (one or more predictor vectors are computed),
+        - and one corrector (minimization) stage (those predictors are corrected).
+    - **`OptIts`**: Average iterations taken by the corrector (minimization) algorithm.
+    - **`OptDirIts`**: Average iterations taken by the corrector direction subproblem.
+    - **`OptLsIts`**: Average backtrack iterations taken by the corrector line search to satisfy the Armijo condition.
+    - **`fCount`**: Number of function evaluations.
+    - **`JCount`**: Number of Jacobian evaluations.
+    - **`HCount`**: Number of Hessian evaluations.
+    - **`vHCount, HwCount, HwvCount`**: Multiply function evaluations.
+    - **`aCount`**: Number of linear inequality constraint evaluations (A * x - b).
+    - **`aeqCount`**: Number of linear equality constraint evaluations (Aeq * x - beq).
+    - **`cCount`**: Number of nonlinear inequality constraint evaluations.
+    - **`ceqCount`**: Number of nonlinear equality constraint evaluations.
+    - **`JcCount`**: Number of nonlinear inequality constraint Jacobian evaluations.
+    - **`JceqCount`**: Number of nonlinear equality constraint Jacobian evaluations.
+
+-	**`EXITFLAG`**: Describes the exit condition.
+    - **`0`**: Number of iterations exceeded **`opts.PCMaxIts`**.
+    - **`1`**: No more solution points found.
+    - **`-1`**: Stopped by an output function.
+    
+### pt.minimize Output
+-	**`result`**: Describes the solution. It is a struct with the following fields:
+    - **`x, fx, Jx, Hx`**: Respectively the solution, and the value of the objective functions, Jacobian, and Hessians (if available).
+    - **`ax, aeqx`**: Respectively the values of the linear inequality and equality constraints (if available).
+    - **`cx, ceqx`**: Respectively the values of the nonlinear inequality and equality constraints (if available).
+    - **`dcx, dceqx`**: Respectively the square norm of the nonlinear inequality and equality constraints (if available).
+    - **`Jcx, Jceqx`**: Respectively the values of the Jacobians of the nonlinear inequality and equality constraints (if available).
+    - **`w`**: Structure with the Lagrange multipliers (if computed).
+        - **`objectives`**: Objective functions.
+        - **`lower`**: Lower bounds.
+        - **`upper`**: Upper bounds.
+        - **`ineqlin`**: Linear inequalities.
+        - **`eqlin`**: Linear equalities.
+        - **`ineqnonlin`**: Nonlinear inequalities.
+        - **`eqnonlin`**: Nonlinear equalities.
+    - **`v`**: Search direction (if computed) at the solution.
+    - **`d`**: Measure of the objectives decrease (if computed) at the solution. The vector (v,d) is the result of the direction subproblem.
+    - **`t`**: Step length (if computed) at the solution.
+    - **`FirstOrdOpt`**: Measure of the first-order optimality.
+
+-	**`stats`**: Statistics.
+    - **`OptIts`**: Number of iterations taken. The iterations only increment if a new value of x is computed.
+    - **`OptDirIts`**: Average iterations taken by the direction subproblem.
+    - **`OptLsIts`**: Average backtrack iterations taken by the line search to satisfy the Armijo condition.
+    - **`fCount`**: Number of function evaluations.
+    - **`JCount`**: Number of Jacobian evaluations.
+    - **`HCount`**: Number of Hessian evaluations.
+    - **`vHCount, HwCount, HwvCount`**: Multiply function evaluations.
+    - **`aCount`**: Number of linear inequality constraint evaluations (A * x - b).
+    - **`aeqCount`**: Number of linear equality constraint evaluations (Aeq * x - beq).
+    - **`cCount`**: Number of nonlinear inequality constraint evaluations.
+    - **`ceqCount`**: Number of nonlinear equality constraint evaluations.
+    - **`JcCount`**: Number of nonlinear inequality constraint Jacobian evaluations.
+    - **`JceqCount`**: Number of nonlinear equality constraint Jacobian evaluations.
+
+-	**`EXITFLAG`**: Describes the exit condition.
+    - **`0`**: Number of iterations exceeded **`opts.OptMaxIts`**.
+    - **`1`**: First-order optimality measure was less than **`opts.FirstOrdOptTol`**.
+    - **`2`**: Change in x too small.
+    - **`-1`**: Stopped by an output function.
+    - **`-2`**: No feasible point was found.
+
+
 
