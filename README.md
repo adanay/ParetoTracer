@@ -27,7 +27,7 @@ Below there is a basic example on how to call this function.
 Each one of the parameters is explained later in detail. For now, another key function is introduced: **`pt.minimize`**. This function is 
 utilized for the corrector phase of the algorithm. For the unconstrained case, it coincides with the Newton method proposed by 
 **Fliege et al. in [3]**. A modification was proposed by **Martín et al. in [1]** to handle equality and box constraints. The current 
-implementation of the **`pt.minimize`** function follows these instructions. A basic example on how to call this function is given below.
+implementation of the pt.minimize function follows these instructions. A basic example on how to call this function is given below.
 
 **`[result, stats, EXITFLAG] = pt.minimize(objfun, x0, [], lb, ub, lincon, nonlcon, multfun, opts);`**
 
@@ -38,7 +38,7 @@ SIAM Journal on Optimization, 20(2):602–626, 2009.<br/>
 ## Ready-to-use Examples
 Several ready-to-use examples are provided, i.e., script files containing examples on how to call the PT main functions. The examples
 are all grouped in two packages called **`x_trace`** and **`x_min`**. The x stands for examples or experiments, and the rest of the
-folder name denotes which function is been tested. Additionally, the current experiments are grouped by the Hessian approximation 
+folder name denotes which function is being tested. Additionally, the current experiments are grouped by the Hessian approximation 
 strategy utilized in the experiment and by the function benchmark name. Finally, there is one file per experiment, **which is ready to use 
 by just clicking the Run button of the MATLAB interface**. 
 
@@ -75,6 +75,8 @@ Elapsed time is 2.908885 seconds.
 Analogously, the plotted result (and part of the printed result) of running the script **`x_min/exact/misc/dent.m`** is displayed below. 
 The experiments for the pt.minimize function are setup such that the algorithm is executed 10 times starting at different randomly 
 selected points.
+
+![x_trace](img/readme_dent.png)
  
 ```
 >> x_min.exact.misc.dent
@@ -101,6 +103,8 @@ Elapsed time is 0.232982 seconds.
 One last example is provided in this section to illustrate the output of PT for a function with more than two objectives and one 
 equality constraint.
 
+![x_trace](img/readme_sproblem1_n100_nobj3.png)
+
 ```
 >> x_trace.exact.eq.sproblem1_n100_nobj3
 
@@ -123,7 +127,52 @@ Hess Evals: 2039
 Elapsed time is 123.262057 seconds.
 ```
 
-Note: This section has selected the most basic problems to demonstrate the capabilities of the current implementation of the algorithm. 
+**Note**: This section has selected the most basic problems to demonstrate the capabilities of the current implementation of the algorithm. 
 PT does not perform well in all benchmark problems and those examples are also included in the experiment set coming with this 
 implementation. The WFG benchmark is one example of a very challenging set of functions for PT.
+
+## Parameters
+Both **`pt.trace`** and **`pt.minimize`** receive the following set of parameters:
+-	**objfun**: It must be either a cell array of function handles or a struct with these fields. I.e., **`objfun = {f, J, H}`** where f, J, H are function handles that represent the objective, Jacobian, and Hessian functions respectively. They can be empty except f. J and H will be approximated if not provided. objfun can also be a function handle. In this case, it will be assumed to be the objective function only. I.e., objfun = f. 
+    - **`f`**  is a function handle of the form **`y = f(x)`** where x is a vector of n components and y is a vector of nobj components.
+    - **`J`**  is a function handle of the form **`y = J(x)`** where x is a vector of n components and y is a matrix of size (nobj x n).
+    - **`H`**  is a function handle of the form **`y = H(x)`** where x is a vector of n components and y is a block matrix of size (n x n x nobj).
+
+-	**x0**: The initial guess. It must be a vector of n dimensions. It must be specified.
+
+-	**funvals0**: The known function values at x0. It can be empty (or any of its fields can be empty). If specified, it must be either a cell array or a struct with these fields:
+**`funvals0 = {fx, Jx, Hx, ax, aeqx, cx, ceqx, dcx, dceqx, Jcx, Jceqx}`**. 
+    - **`fx = objfun.f(x0)`**  % objective function
+    - **`Jx = objfun.J(x0)`**  % Jacobian 
+    - **`Hx = objfun.H(x0)`**  % Hessian
+    - **`Ax = lincon.A * x – lincon.b`**  % linear inequalities
+    - **`Aeqx = lincon.Aeq * x – lincon.beq`**  % linear equalities
+    - **`cx = nonlcon.c(x0)`**  % nonlinear inequalities
+    - **`ceqx = nonlcon.ceq(x0)`**  % nonlinear equalities
+    - **`dcx = norm(ax)^2 + norm(cx)^2`**  % square norm of the inequalities
+    - **`dceqx = norm(aeqx)^2 + norm(ceqx)^2`**  % square norm of the equalities
+    - **`Jcx = nonlcon.Jc(x0)`**  % Jacobian of the nonlinear inequalities
+    - **`Jceqx = nonlcon.Jceq(x0)`**  % Jacobian of the nonlinear equalities
+
+-	**`lb, ub`**: Vectors that represent the box constraints in decision space. They must have n components or be empty.
+
+-	**`lincon`**: It must be either a cell array of matrices or a struct with these fields. I.e., **`lincon = {A, b, Aeq, beq}`** representing the linear inequality and equality constraints. They all can be empty.
+A is a matrix of size (na x n) where na is the number of linear inequalities.
+    - **`b`** is a vector of na components.
+    - **`Aeq`** is a matrix of size (naeq x n) where naeq is the number of linear equalities.
+    - **`beq`** is a vector of naeq components.
+
+-	**`nonlcon`**: It must be either a cell array of function handles or a struct with these fields. I.e., **`nonlcon = {c, ceq, Jc, Jceq}`** representing the inequality and equality constraints together with their respective Jacobians. If the Jacobians are not provided, they will be approximated. nonlcon can also be a function handle. In this case, it will be assumed to be the nonlinear inequality constraints function only. I.e., nonlcon = c.
+    - **`c`** is a function handle of the form **`y = c(x)`** where x is a vector of n components and y is a vector of nc components.
+    - **`ceq`** is a function handle of the form **`y = ceq(x)`** where x is a vector of n components and y is a vector of nceq components.
+    - **`Jc`** is a function handle of the form **`y = Jc(x)`** where x is a vector of n components and y is a matrix of size (nc x n).
+    - **`Jceq`** is a function handle of the form **`y = Jceq(x)`** where x is a vector of n components and y is a matrix of size (nceq x n).
+
+-	**`multfun`**: It must be either a cell array of function handles or a struct with these fields. I.e., **`multfun = {vH, Hw, Hwv}`** representing the Hessian multiply functions. They all can be empty. If specified, the multiply functions will be utilized instead of the Hessian function.
+    - **`vH`** is a function handle of the form **`y = vH(x, v)`** where **`y = [v' * H1; v' * H2; ...; v' * Hnobj]`**. The result y has a size of (nobj x n).
+    - **`Hw`** is a function handle of the form **`y = Hw(x, w)`** where **`y = H1 * w1 + H2 * w2 + ... + Hnobj * wnobj`**. The result y has a size of (n x n), i.e., the weighted sum of Hessians.
+    - **`Hwv`** is a function handle of the form **`y = Hwv(x, w, v)`** where **`y = (H1 * w1 + H2 * w2 + ... + Hnobj * wnobj) * v`**. The result y is a vector of n components.
+
+-	**`opts`**: This is a structure containing all the options that can be passed to the algorithms. There is a separate section dedicated to this. 
+
 
