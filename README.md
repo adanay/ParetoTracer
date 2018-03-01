@@ -263,7 +263,7 @@ The default set of options can be obtained by calling the function **`pt.defopts
     - **`'chol'`**: Modified Cholesky decomposition. This is the default.
     - **`'off'`**: No modification is performed.
 -	**`FunValCheck`**: **`true/false`**. Checks whether the objective function values are valid. If true, displays an error when the objective function returns a value that is complex, NaN, or Inf. If the Jacobian is not valid, a warning will be thrown, and the Jacobian will be approximated by FD. Same for the Hessians, but they can also be updated by QN, or approximated to the identity matrix (depending on the HessApprox choice).
--	**`LargeScale`**: **`false/true`**. If the problem is large scale, a matrix of size **`(n x n)`** will never be formed unless the Hessian is provided, the multiply function Hw is provided, or opts.HessApprox = 'bfgs'. Only matrices of size **`(nobj x n)`** (same size as the Jacobian) will be formed. The default is false.  
+-	**`LargeScale`**: **`false/true`**. If the problem is large scale, a matrix of size **`(n x n)`** will never be formed unless the Hessian is provided, the multiply function Hw is provided, or opts.HessApprox = 'bfgs'. Only matrices of size **`(nobj x n)`** (same size as the Jacobian) will be formed.  
 -	**`PCMaxIts`**: **`10000`**. Max number of iterations allowed to the continuation algorithm, where each iteration consists of 
     - a predictor stage (one or several predictors around a point),
     - and a corrector (optimization) stage (those predictors are corrected).
@@ -293,16 +293,19 @@ The default set of options can be obtained by calling the function **`pt.defopts
     - **`'forward'`** (the default), or 
     - **`'central'`**, which takes twice as many function evaluations but should be more accurate.
 **Note**: Central FD is not currently supported.
--	**`TypicalX`**: Scalar or vector that specifies typical magnitude of variables. The default is 1.
--	**`FDMinChange`**: Minimum change allowed in variables. Default to 0.
--	**`FDMaxChange`**: Maximum change allowed in variables. Default to Inf.
--	**`FDStepSize`**: Scalar or vector step size factor. When you set it to a vector t, the change in variables is calculated as: 
+-	**`TypicalX`**: **`1`**. Scalar or vector that specifies typical magnitude of variables.
+-	**`FDMinChange`**: **`0`**. Minimum change allowed in variables.
+-	**`FDMaxChange`**: **`Inf`**. Maximum change allowed in variables.
+-	**`FDStepSize`**: **`sqrt(eps)`**. Scalar or vector step size factor. When you set it to a vector t, the change in variables is calculated as: 
+```
 e = t .* max(abs(x), abs(TypicalX)) .* sign'(x);  
+```
 where sign'(x) is -1 for x < 0 and 1 for x >= 0. 
-The default is sqrt(eps).
 -	**`FDStepSize2`**: Same as above but used for central finite differences or when the Jacobian is not provided when approximating Hessians. For central finite differences, when set it to a vector t, the change in variables is calculated as:
+```
 e = t .* max(abs(x), abs(TypicalX));
-The default is eps^(1/3). 
+```
+The default is **`eps^(1/3)`**. 
 -	**`UseVectorized`**: Defines whether multiple values of the function can be obtained with a single call to f, e.g., Y = f(X) where X is a matrix where each row represents a single individual, and analogously, Y is a matrix where each row represents a function evaluation. For the Jacobian function it is similar. If X has a size of (m x n), Y = J(X) will have a size of (m x nobj x n). The default is false.
 -	**`FDForceHess`**: When using FD, defines whether to approximate a full Hessian at each iteration instead of several products (v' * H). By default, it is false, or true if n <= 5. If opts.LargeScale is specified, this setting has no effect as the idea is not to form (n x n) matrices. Thus, the product (v' * H) will be favored.
 
