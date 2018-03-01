@@ -182,8 +182,8 @@ Both **`pt.trace`** and **`pt.minimize`** return the same set of output paramete
 
 ### pt.trace Output
 -	**`result`**: Describes the solution. It is a struct with the following fields:
-    - **`ps`**: The (local) Pareto set of the problem: A matrix of size (m x n) where m is the number of solutions found and n is the number of variables.
-    - **`pf`**: The (local) Pareto front of the problem: A matrix of size (m x nobj) where m is the number of solutions found and nobj is the number of objectives.
+    - **`ps`**: The (local) Pareto set of the problem: A matrix of size **`(m x n)`** where **`m`** is the number of solutions found and **`n`** is the number of variables.
+    - **`pf`**: The (local) Pareto front of the problem: A matrix of size **`(m x nobj)`** where **`m`** is the number of solutions found and **`nobj`** is the number of objectives.
 
 -	**`Stats`**: Statistics.
     - **`Count`**: Number of solutions found.
@@ -197,8 +197,8 @@ Both **`pt.trace`** and **`pt.minimize`** return the same set of output paramete
     - **`JCount`**: Number of Jacobian evaluations.
     - **`HCount`**: Number of Hessian evaluations.
     - **`vHCount, HwCount, HwvCount`**: Multiply function evaluations.
-    - **`aCount`**: Number of linear inequality constraint evaluations (A * x - b) (currently ignored).
-    - **`aeqCount`**: Number of linear equality constraint evaluations (Aeq * x - beq).
+    - **`aCount`**: Number of linear inequality constraint evaluations **`(A * x - b)`** (currently ignored).
+    - **`aeqCount`**: Number of linear equality constraint evaluations **`(Aeq * x - beq)`**.
     - **`cCount`**: Number of nonlinear inequality constraint evaluations (currently ignored).
     - **`ceqCount`**: Number of nonlinear equality constraint evaluations.
     - **`JcCount`**: Number of nonlinear inequality constraint Jacobian evaluations (currently ignored).
@@ -225,7 +225,7 @@ Both **`pt.trace`** and **`pt.minimize`** return the same set of output paramete
         - **`ineqnonlin`**: Nonlinear inequalities.
         - **`eqnonlin`**: Nonlinear equalities.
     - **`v`**: Search direction (if computed) at the solution.
-    - **`d`**: Measure of the objectives decrease (if computed) at the solution. The vector (v,d) is the result of the direction subproblem.
+    - **`d`**: Measure of the objectives decrease (if computed) at the solution. The vector **`(v,d)`** is the result of the direction subproblem.
     - **`t`**: Step length (if computed) at the solution.
     - **`FirstOrdOpt`**: Measure of the first-order optimality.
 
@@ -237,8 +237,8 @@ Both **`pt.trace`** and **`pt.minimize`** return the same set of output paramete
     - **`JCount`**: Number of Jacobian evaluations.
     - **`HCount`**: Number of Hessian evaluations.
     - **`vHCount, HwCount, HwvCount`**: Multiply function evaluations.
-    - **`aCount`**: Number of linear inequality constraint evaluations (A * x - b) (currently ignored).
-    - **`aeqCount`**: Number of linear equality constraint evaluations (Aeq * x - beq).
+    - **`aCount`**: Number of linear inequality constraint evaluations **`(A * x - b)`** (currently ignored).
+    - **`aeqCount`**: Number of linear equality constraint evaluations **`(Aeq * x - beq)`**.
     - **`cCount`**: Number of nonlinear inequality constraint evaluations (currently ignored).
     - **`ceqCount`**: Number of nonlinear equality constraint evaluations.
     - **`JcCount`**: Number of nonlinear inequality constraint Jacobian evaluations (currently ignored).
@@ -263,7 +263,7 @@ The default set of options can be obtained by calling the function **`pt.defopts
     - **`'chol'`**: Modified Cholesky decomposition. This is the default.
     - **`'off'`**: No modification is performed.
 -	**`FunValCheck`**: **`true/false`**. Checks whether the objective function values are valid. If true, displays an error when the objective function returns a value that is complex, NaN, or Inf. If the Jacobian is not valid, a warning will be thrown, and the Jacobian will be approximated by FD. Same for the Hessians, but they can also be updated by QN, or approximated to the identity matrix (depending on the HessApprox choice).
--	**`LargeScale`**: **`false/true`**. If the problem is large scale, a matrix of size (n x n) will never be formed unless the Hessian is provided, the multiply function Hw is provided, or opts.HessApprox = 'bfgs'. Only matrices of size (nobj x n) (same size as the Jacobian) will be formed. The default is false.  
+-	**`LargeScale`**: **`false/true`**. If the problem is large scale, a matrix of size **`(n x n)`** will never be formed unless the Hessian is provided, the multiply function Hw is provided, or opts.HessApprox = 'bfgs'. Only matrices of size **`(nobj x n)`** (same size as the Jacobian) will be formed. The default is false.  
 -	**`PCMaxIts`**: **`10000`**. Max number of iterations allowed to the continuation algorithm, where each iteration consists of 
     - a predictor stage (one or several predictors around a point),
     - and a corrector (optimization) stage (those predictors are corrected).
