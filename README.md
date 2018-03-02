@@ -331,11 +331,12 @@ where info is a structure containing the current variables being utilized by the
         - **`'SAVE'`**: The corrector was saved.  
         - **`'IT-FINIT'`**: The current iteration is about to finish.
         - **`'FINIT'`**: The algorithm has finished.
-Additionally,
-    - If stop = true is returned, the algorithm will stop.
-    - If discard = true is returned, the current predictor or corrector point will be discarded.
-    - If it1, itp, itc, stats, are returned, they will replace the values utilized by the algorithm.    
-**Note**: The current implementation comes with one default output function for pt.trace. See pt.traceout. This function internally uses pt.traceprint and pt.traceplot. These can be used as starting points for customized output functions.
+    - Additionally, if **`stop = true`** is returned, the algorithm will stop.
+    - If **`discard = true`** is returned, the current predictor or corrector point will be discarded.
+    - If **`it1, itp, itc, stats`**, are returned, they will replace the values utilized by the algorithm.    
+    
+**Note**: The current implementation comes with one default output function for pt.trace. See pt.traceout. This function internally uses **`pt.traceprint`** and **`pt.traceplot`**. These can be used as starting points for customized output functions.
+
 -	**`MOPName`**: Name of the multi-objective optimization problem (MOP) being solved. 
 -	**`PCIndent, OptIndent`**: Initial indentation for the output of the algorithms. By default it is ''.
 -	**`IndentGrowFactor`**: It is '  ' by default.
