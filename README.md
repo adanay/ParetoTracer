@@ -306,7 +306,8 @@ http://digital.ub.uni-paderborn.de/ubpb/urn/urn:nbn:de:hbz:466-20040101418
 -	**`FDMinChange`**: **`0`**. Minimum change allowed in variables.
 -	**`FDMaxChange`**: **`Inf`**. Maximum change allowed in variables.
 -	**`FDStepSize`**: **`sqrt(eps)`**. Scalar or vector step size factor. When you set it to a vector t, the change in variables is calculated as:<br/>
-  `e = t .* max(abs(x), abs(TypicalX)) .* sign'(x); % where sign'(x) is -1 for x < 0 and 1 for x >= 0` 
+  `e = t .* max(abs(x), abs(TypicalX)) .* sign'(x);`
+where sign'(x) is -1 for x < 0 and 1 for x >= 0. 
 -	**`FDStepSize2`**: **`eps^(1/3)`**. Same as above but used for central finite differences or when the Jacobian is not provided when approximating Hessians. For central finite differences, when set it to a vector t, the change in variables is calculated as:<br/>
   `e = t .* max(abs(x), abs(TypicalX));`
 -	**`UseVectorized`**: Defines whether multiple values of the function can be obtained with a single call to f, e.g., Y = f(X) where X is a matrix where each row represents a single individual, and analogously, Y is a matrix where each row represents a function evaluation. For the Jacobian function it is similar. If X has a size of (m x n), Y = J(X) will have a size of (m x nobj x n). The default is false.
@@ -330,13 +331,11 @@ where info is a structure containing the current variables being utilized by the
         - **`'SAVE'`**: The corrector was saved.  
         - **`'IT-FINIT'`**: The current iteration is about to finish.
         - **`'FINIT'`**: The algorithm has finished.
-  Additionally,
+Additionally,
     - If stop = true is returned, the algorithm will stop.
     - If discard = true is returned, the current predictor or corrector point will be discarded.
-    - If it1, itp, itc, stats, are returned, they will replace the values utilized by the algorithm.
-    
+    - If it1, itp, itc, stats, are returned, they will replace the values utilized by the algorithm.    
 **Note**: The current implementation comes with one default output function for pt.trace. See pt.traceout. This function internally uses pt.traceprint and pt.traceplot. These can be used as starting points for customized output functions.
-
 -	**`MOPName`**: Name of the multi-objective optimization problem (MOP) being solved. 
 -	**`PCIndent, OptIndent`**: Initial indentation for the output of the algorithms. By default it is ''.
 -	**`IndentGrowFactor`**: It is '  ' by default.
