@@ -315,7 +315,42 @@ http://digital.ub.uni-paderborn.de/ubpb/urn/urn:nbn:de:hbz:466-20040101418
 ### Printing and Plotting Options
 The following options are all related to the printing and plotting capabilities of **`pt.trace`** and **`pt.minimize`**. Basically, the entire output can be replaced by specifying custom output function handles.
 
--	**`OptOutFcn`**: Function to display info or to stop the optimization algorithm. It has the following format:<br/>
+-	**`PCOutFcn`**: Function to display info or to stop the PC algorithm. It is also used to discard the current predictor or corrector points. It has the following format:<br/>
+  **`function [stop, discard, it1, itp, itc] = pcoutfcn(info)`**
+where info is a structure containing the current variables being utilized by the algorithm:
+    - **`it0, it1`**: Previous and current iteration structures. See **`pt.traceit`** for the list of fields. The `pt.traceit` function is an auxiliary function to build the iteration structures utilized to store temporal data as function values etc. per iteration.
+    - **`itp, itc`**: Current predictor or corrector structures (depending on the **`PHASEFLAG`**). See `pt.traceit` for the list of fields.  
+    - **`objfun, x0, funvals0, lb, ub, lincon, nonlcon, multfun, opts`**: The input parameters to the continuation function.
+    - **`result, stats, EXITFLAG`**: The output parameters of the continuation function.
+    - **`PHASEFLAG`** 
+        - **`'INIT'`**: The algorithm is ready to start.
+        - **`'IT-INIT'`**: The current iteration is ready to start.
+        - **`'PRED'`**: A new predictor was just computed.
+        - **`'CORRECT'`**: A new corrector was just computed.
+        - **`'SAVE'`**: The corrector was saved.  
+        - **`'IT-FINIT'`**: The current iteration is about to finish.
+        - **`'FINIT'`**: The algorithm has finished.
+  Additionally,
+    - If stop = true is returned, the algorithm will stop.
+    - If discard = true is returned, the current predictor or corrector point will be discarded.
+    - If it1, itp, itc, stats, are returned, they will replace the values utilized by the algorithm.
+    
+**Note**: The current implementation comes with one default output function for pt.trace. See pt.traceout. This function internally uses pt.traceprint and pt.traceplot. These can be used as starting points for customized output functions.
+
+-	**`MOPName`**: Name of the multi-objective optimization problem (MOP) being solved. 
+-	**`PCIndent, OptIndent`**: Initial indentation for the output of the algorithms. By default it is ''.
+-	**`IndentGrowFactor`**: It is '  ' by default.
+-	**`PCSuppressOutput, PCSuppressPrint, PCSuppressPlot, 
+OptSuppressOutput, OptSuppressPrint, OptSuppressPlot`**: Controls the output. They are all false by default.
+-	**`OptPrintMode`**: 'off', 'iter', 'result'. The default is 'result'.
+-	**`PCPrintMode`**: 'off', 'iter', 'result'. The default is 'result'.
+-	**`OptPlotMode`**: 'off', 'iter', 'result'. The default is 'iter'.
+-	**`PCPlotMode`**: 'off', 'iter', 'result', 'flow'. The default is 'result'.
+    - The choice 'iter' plots the predictor and corrector steps. Following one example of how the setting 'iter' would look like. Note that the predictors are magenta, and the correctors are green. Execute the script x_trace.bfgs.eq.sproblem2_n100_nobj2 for a similar result.
+ 
+    - The choice 'flow' determines whether to plot a line between the previous and current corrector. By default, it is true for the bi-objective case and false for the general case. Below there is an example of how this setting would look like. Check x_trace.bfgs.dtlz.cdtlz2_n100_nobj3. 
+    
+ -	**`OptOutFcn`**: Function to display info or to stop the optimization algorithm. It has the following format:<br/>
 **`function [stop, it1, it2, stats] = optoutfcn(info)`**<br/>
 where info is a structure containing the current variables being utilized by the algorithm:
     - **`it0, it1, it2`**: Previous, current, and next iteration structures. See **`pt.minit`** for the list of fields. The pt.minit function is an auxiliary function to build the iteration structures utilized to store temporal data as function values etc. per iteration.
@@ -331,46 +366,11 @@ where info is a structure containing the current variables being utilized by the
     - **`DIREXITFLAG`**: Exit condition of the direction subproblem algorithm.
     - **`OptDirIts`**: No of iterations performed by the direction subproblem solver.
     - **`LSEXITFLAG`**: Exit condition of the line search algorithm.
-    - **`OptLsIts`**: No of iterations performed by the line search. 
+    - **`OptLsIts`**: No of iterations performed by the line search.
 Additionally,
     - If stop = true is returned, the algorithm will stop.
     - If it1, it2, stats are returned, they will replace the values utilized by the algorithm.
 **Note**: The current implementation comes with one default output function for pt.minimize. See pt.minout. This function internally uses pt.minprint and pt.minplot. These can be used as starting points for customized output functions.
-
--	**`PCOutFcn`**: Function to display info or to stop the PC algorithm. It is also used to discard the current predictor or corrector point. It has the following format:
-function [stop, discard, it1, itp, itc] = pcoutfcn(info)
-where info is a structure containing the current variables being utilized by the algorithm:
-    - **`it0, it1`**: Previous and current iteration structures. See pt.traceit  for the list of fields. The pt.traceit function is an auxiliary function to build the iteration structures utilized to store temporal data as function values etc. per iteration.
-    - **`itp, itc`**: Current predictor or corrector structures. See pt.traceit for the list of fields.  
-    - **`objfun, x0, funvals0, lb, ub, lincon, nonlcon, multfun, opts`**: The input parameters to the continuation function.
-    - **`result, stats, EXITFLAG`**: The output parameters of the continuation function.
-    - **`PHASEFLAG`** 
-        - **`'INIT'`**: The algorithm is ready to start.
-        - **`'IT-INIT'`**: The current iteration is ready to start.
-        - **`'PRED'`**: A new predictor was just computed.
-        - **`'CORRECT'`**: A new corrector was just computed.
-        - **`'SAVE'`**: The corrector was saved.  
-        - **`'IT-FINIT'`**: The current iteration is about to finish.
-        - **`'FINIT'`**: The algorithm has finished.
-Additionally,
-    - If stop = true is returned, the algorithm will stop.
-    - If discard = true is returned, the current predictor or corrector point will be discarded.
-    - If it1, itp, itc, stats, are returned, they will replace the values utilized by the algorithm.
-**Note**: The current implementation comes with one default output function for pt.trace. See pt.traceout. This function internally uses pt.traceprint and pt.traceplot. These can be used as starting points for customized output functions.
-The following options are designed to be utilized by the output (printing and plotting) functions only. 
--	**`MOPName`**: Name of the multi-objective optimization problem (MOP) being solved. 
--	**`PCIndent, OptIndent`**: Initial indentation for the output of the algorithms. By default it is ''.
--	**`IndentGrowFactor`**: It is '  ' by default.
--	**`PCSuppressOutput, PCSuppressPrint, PCSuppressPlot, 
-OptSuppressOutput, OptSuppressPrint, OptSuppressPlot`**: Controls the output. They are all false by default.
--	**`OptPrintMode`**: 'off', 'iter', 'result'. The default is 'result'.
--	**`PCPrintMode`**: 'off', 'iter', 'result'. The default is 'result'.
--	**`OptPlotMode`**: 'off', 'iter', 'result'. The default is 'iter'.
--	**`PCPlotMode`**: 'off', 'iter', 'result', 'flow'. The default is 'result'.
-    - The choice 'iter' plots the predictor and corrector steps. Following one example of how the setting 'iter' would look like. Note that the predictors are magenta, and the correctors are green. Execute the script x_trace.bfgs.eq.sproblem2_n100_nobj2 for a similar result.
- 
-    - The choice 'flow' determines whether to plot a line between the previous and current corrector. By default, it is true for the bi-objective case and false for the general case. Below there is an example of how this setting would look like. Check x_trace.bfgs.dtlz.cdtlz2_n100_nobj3. 
- 
 -	**`PCDrawCells`**: true/false. Determines whether to draw the computed cells. By default, it is false. An example of this setting is illustrated later.
 -	**`PlotAxesPartition1, PlotAxesPartition2`**: Breaks the Figure window into an m-by-n matrix of small axes. By default, it is (1 x 2), i.e., one partition for the objective space and another partition for the decision space.
 -	PlotPSAxesInd, PlotPFAxesInd`**: Indices of the axes where the PS and the PF will be plotted. 0 means that they are not plotted. By default, they are 2 and 1 respectively.
