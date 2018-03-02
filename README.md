@@ -31,9 +31,9 @@ implementation of the pt.minimize function follows these instructions. A basic e
 
 **`[result, stats, EXITFLAG] = pt.minimize(objfun, x0, [], lb, ub, lincon, nonlcon, multfun, opts);`**
 
-**[3]** Jörge Fliege, L. M. Graña Drummond, and Benar F. Svaiter.<br/> 
-**Newton’s method for multiobjective optimization.** <br/>
-SIAM Journal on Optimization, 20(2):602–626, 2009.<br/>
+**[3]** Jörge Fliege, L. M. Graña Drummond, and Benar F. Svaiter<br/> 
+**Newton’s method for multiobjective optimization** <br/>
+SIAM Journal on Optimization, 20(2):602–626, 2009<br/>
 
 ## Ready-to-use Examples
 Several ready-to-use examples are provided, i.e., script files containing examples on how to call the PT main functions. The examples
@@ -255,6 +255,8 @@ Both **`pt.trace`** and **`pt.minimize`** return the same set of output paramete
 The behavior of **`pt.trace`** and **`pt.minimize`** can be configured by the following set of options that can be passed in a structure as the last parameter of both algorithms.
 The default set of options can be obtained by calling the function **`pt.defopts(n, nobj)`**. The parameters n and nobj are optional.
 
+Probably the most relevant option in this section is **`PCStepObj`**. This setting defines the desired distance between optimal points in objective space and is problem-dependent. It is set by default to 0.1 but it should be adjusted by the user depending on the problem scale. PT will then estimate the distance between points in decision space such that the correspoding objective values are separated by approximately **`PCStepObj`** in objective space. PT calculates distances using the Euclidean norm. 
+
 -	**`HessApprox`**: Ignored if the Hessian or the Hessian multiply functions are provided.
     - **`'bfgs'`** (default): A Quasi-Newton BFGS update is used for each Hessian. 
     - **`'off'`**: A steepest descent method is performed, i.e., the Hessians are assumed to be the identity matrix.
@@ -278,15 +280,20 @@ The default set of options can be obtained by calling the function **`pt.defopts
 -	**`ConstViolTol`**: **`1e-6`**. Tolerance on the constraint violation.
 -	**`ConstActiveTol`**: **`1e-6`**. Tolerance utilized to determine whether a variable is active with respect to the constraints.
 -	**`PCEdgeTol`**: **`1e-3`**. If there is a component of alpha (Lagrange multiplier corresponding to the objective functions) below this tolerance, the current iteration point is on an edge.
--	**`PCStepObj`**: **`0.1`**. Scalar step length in objective space.
--	**`PCMinRelStepObj`**: If the relative step length (regarding PCStepObj) is below this tolerance, the new point will be discarded.
--	**`PCMaxRelStepObj`**: If the relative step length (regarding PCStepObj) is above this tolerance, the new point will be discarded.
--	**`LbObj`**: Vector representing the lower bounds in objective space.
--	**`UbObj`**: Vector representing the upper bounds in objective space.
--	**`PCForceCells`**: **`false/true`**. Force the use of space cells even if the problem is bi-objective. Space cells are mandatory for nobj > 2. 
--	**`PCForceSecant`**: **`false/true`**. Force the use of secants for bi-objective problems.
--	**`InitSetSize`**: Initial array length for variable length arrays, e.g. the computed solution set of a PC algorithm.
--	**`SetSizeGrowFact`**: Grow factor for variable length arrays.
+-	**`PCStepObj`**: **`0.1`**. Scalar step length in objective space. This setting defines the desired distance between optimal points in objective space and is problem-dependent. It is set by default to 0.1 but it should be adjusted by the user depending on the problem scale. PT will then estimate the distance between points in decision space such that the correspoding objective values are separated by approximately **`PCStepObj`** in objective space. PT calculates distances using the Euclidean norm.
+-	**`PCMinRelStepObj`**: **`0.1`**. If the relative step length (regarding **`PCStepObj`**) is below this tolerance, the new point will be discarded.
+-	**`PCMaxRelStepObj`**: **`10`**. If the relative step length (regarding **`PCStepObj`**) is above this tolerance, the new point will be discarded.
+-	**`LbObj`**: **`[]`**. Vector representing the lower bounds in objective space.
+-	**`UbObj`**: **`[]`**. Vector representing the upper bounds in objective space.
+-	**`PCForceCells`**: **`false/true`**. Force the use of space cells even if the problem is bi-objective. The implementation of space cells is based on [4]. This is a data structure utilized to keep track of which part of the optimal manifold is already traced and is based on a subdivision of the objective space into boxes. Space cells are mandatory for nobj > 2. Thus, this setting is applicable only to bi-objective problems. 
+-	**`PCForceSecant`**: **`false/true`**. Force the use of secants to be used as tangents in the predictor phase. This setting is applicable only to bi-objective problems.
+-	**`InitSetSize`**: **`100`**. Initial array length for variable length arrays, e.g. the computed solution set of a PC algorithm.
+-	**`SetSizeGrowFact`**: **`1.5`**. Grow factor for variable length arrays.
+
+**[4]** O. Schütze<br/>
+**Set Oriented Methods for Global Optimization**<br/> 
+PhD thesis, University of Paderborn, 2004<br/>
+http://ubdata.uni-paderborn.de/ediss/17/2004/schuetze
 
 ### Finite Differences Options
 -	**`FDType`**: FD, used to estimate gradients, are either: 
