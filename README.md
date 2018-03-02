@@ -321,9 +321,7 @@ e = t .* max(abs(x), abs(TypicalX));
 The following options are all related to the printing and plotting capabilities of **`pt.trace`** and **`pt.minimize`**. Basically, the entire output can be replaced by specifying custom output function handles.
 
 -	**`OptOutFcn`**: Function to display info or to stop the optimization algorithm. It has the following format:
-```
 function [stop, it1, it2, stats] = optoutfcn(info)
-```
 where info is a structure containing the current variables being utilized by the algorithm:
     - **`it0, it1, it2`**: Previous, current, and next iteration structures. See **`pt.minit`** for the list of fields. The pt.minit function is an auxiliary function to build the iteration structures utilized to store temporal data as function values etc. per iteration.
     - **`objfun, x0, funvals0, lb, ub, lincon, nonlcon, multfun, opts`**: The input parameters to the optimization function.
@@ -332,7 +330,7 @@ where info is a structure containing the current variables being utilized by the
         - **`'INIT'`**: The algorithm is ready to start.
         - **`'IT-INIT'`**: The current iteration is ready to start.
         - **`'DIR'`**: The descent direction was just computed.
-        - **`'STEP': The step length was just computed.
+        - **`'STEP'`**: The step length was just computed.
         - **`'IT-FINIT'`**: The current iteration is about to finish.
         - **`'FINIT'`**: The algorithm has finished.
     - **`DIREXITFLAG`**: Exit condition of the direction subproblem algorithm.
@@ -343,6 +341,7 @@ Additionally,
     - If stop = true is returned, the algorithm will stop.
     - If it1, it2, stats are returned, they will replace the values utilized by the algorithm.
 **Note**: The current implementation comes with one default output function for pt.minimize. See pt.minout. This function internally uses pt.minprint and pt.minplot. These can be used as starting points for customized output functions.
+
 -	**`PCOutFcn`**: Function to display info or to stop the PC algorithm. It is also used to discard the current predictor or corrector point. It has the following format:
 function [stop, discard, it1, itp, itc] = pcoutfcn(info)
 where info is a structure containing the current variables being utilized by the algorithm:
