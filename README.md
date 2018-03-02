@@ -318,21 +318,23 @@ e = t .* max(abs(x), abs(TypicalX));
 -	**`FDForceHess`**: When using FD, defines whether to approximate a full Hessian at each iteration instead of several products (v' * H). By default, it is false, or true if n <= 5. If opts.LargeScale is specified, this setting has no effect as the idea is not to form (n x n) matrices. Thus, the product (v' * H) will be favored.
 
 ### Printing and Plotting Options
-The following options are all related to the printing and plotting capabilities of pt.trace and pt.minimize. Basically, the entire output can be replaced by specifying custom output function handles.
+The following options are all related to the printing and plotting capabilities of **`pt.trace`** and **`pt.minimize`**. Basically, the entire output can be replaced by specifying custom output function handles.
 
 -	**`OptOutFcn`**: Function to display info or to stop the optimization algorithm. It has the following format:
+```
 function [stop, it1, it2, stats] = optoutfcn(info)
+```
 where info is a structure containing the current variables being utilized by the algorithm:
-    - **`it0, it1, it2`**: Previous, current, and next iteration structures. See pt.minit for the list of fields. The pt.minit function is an auxiliary function to build the iteration structures utilized to store temporal data as function values etc. per iteration.
+    - **`it0, it1, it2`**: Previous, current, and next iteration structures. See **`pt.minit`** for the list of fields. The pt.minit function is an auxiliary function to build the iteration structures utilized to store temporal data as function values etc. per iteration.
     - **`objfun, x0, funvals0, lb, ub, lincon, nonlcon, multfun, opts`**: The input parameters to the optimization function.
-    - **`result, stats, EXITFLAG: The output parameters of the optimization function.
+    - **`result, stats, EXITFLAG`**: The output parameters of the optimization function.
     - **`PHASEFLAG`** 
-•	**`'INIT'`**: The algorithm is ready to start.
-•	**`'IT-INIT'`**: The current iteration is ready to start.
-•	**`'DIR'`**: The descent direction was just computed.
-•	**`'STEP': The step length was just computed.
-•	**`'IT-FINIT'`**: The current iteration is about to finish.
-•	**`'FINIT'`**: The algorithm has finished.
+        - **`'INIT'`**: The algorithm is ready to start.
+        - **`'IT-INIT'`**: The current iteration is ready to start.
+        - **`'DIR'`**: The descent direction was just computed.
+        - **`'STEP': The step length was just computed.
+        - **`'IT-FINIT'`**: The current iteration is about to finish.
+        - **`'FINIT'`**: The algorithm has finished.
     - **`DIREXITFLAG`**: Exit condition of the direction subproblem algorithm.
     - **`OptDirIts`**: No of iterations performed by the direction subproblem solver.
     - **`LSEXITFLAG`**: Exit condition of the line search algorithm.
@@ -349,13 +351,13 @@ where info is a structure containing the current variables being utilized by the
     - **`objfun, x0, funvals0, lb, ub, lincon, nonlcon, multfun, opts`**: The input parameters to the continuation function.
     - **`result, stats, EXITFLAG`**: The output parameters of the continuation function.
     - **`PHASEFLAG`** 
-•	**`'INIT'`**: The algorithm is ready to start.
-•	**`'IT-INIT'`**: The current iteration is ready to start.
-•	**`'PRED'`**: A new predictor was just computed.
-•	**`'CORRECT'`**: A new corrector was just computed.
-•	**`'SAVE'`**: The corrector was saved.  
-•	**`'IT-FINIT'`**: The current iteration is about to finish.
-•	**`'FINIT'`**: The algorithm has finished.
+        - **`'INIT'`**: The algorithm is ready to start.
+        - **`'IT-INIT'`**: The current iteration is ready to start.
+        - **`'PRED'`**: A new predictor was just computed.
+        - **`'CORRECT'`**: A new corrector was just computed.
+        - **`'SAVE'`**: The corrector was saved.  
+        - **`'IT-FINIT'`**: The current iteration is about to finish.
+        - **`'FINIT'`**: The algorithm has finished.
 Additionally,
     - If stop = true is returned, the algorithm will stop.
     - If discard = true is returned, the current predictor or corrector point will be discarded.
