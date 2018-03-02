@@ -293,7 +293,7 @@ Probably the most relevant option in this section is **`PCStepObj`**. This setti
 **[4]** O. Schütze<br/>
 **Set Oriented Methods for Global Optimization**<br/> 
 PhD thesis, University of Paderborn, 2004<br/>
-http://ubdata.uni-paderborn.de/ediss/17/2004/schuetze
+http://digital.ub.uni-paderborn.de/ubpb/urn/urn:nbn:de:hbz:466-20040101418
 
 ### Finite Differences Options
 -	**`FDType`**: FD, used to estimate gradients, are either: 
