@@ -305,23 +305,19 @@ http://digital.ub.uni-paderborn.de/ubpb/urn/urn:nbn:de:hbz:466-20040101418
 -	**`TypicalX`**: **`1`**. Scalar or vector that specifies typical magnitude of variables.
 -	**`FDMinChange`**: **`0`**. Minimum change allowed in variables.
 -	**`FDMaxChange`**: **`Inf`**. Maximum change allowed in variables.
--	**`FDStepSize`**: **`sqrt(eps)`**. Scalar or vector step size factor. When you set it to a vector t, the change in variables is calculated as: 
-```
-e = t .* max(abs(x), abs(TypicalX)) .* sign'(x);  
-```
+-	**`FDStepSize`**: **`sqrt(eps)`**. Scalar or vector step size factor. When you set it to a vector t, the change in variables is calculated as:<br/> 
+`e = t .* max(abs(x), abs(TypicalX)) .* sign'(x);`<br/>  
 where sign'(x) is -1 for x < 0 and 1 for x >= 0. 
--	**`FDStepSize2`**: **`eps^(1/3)`**. Same as above but used for central finite differences or when the Jacobian is not provided when approximating Hessians. For central finite differences, when set it to a vector t, the change in variables is calculated as:
-```
-e = t .* max(abs(x), abs(TypicalX));
-``` 
+-	**`FDStepSize2`**: **`eps^(1/3)`**. Same as above but used for central finite differences or when the Jacobian is not provided when approximating Hessians. For central finite differences, when set it to a vector t, the change in variables is calculated as:<br/>
+`e = t .* max(abs(x), abs(TypicalX));`
 -	**`UseVectorized`**: Defines whether multiple values of the function can be obtained with a single call to f, e.g., Y = f(X) where X is a matrix where each row represents a single individual, and analogously, Y is a matrix where each row represents a function evaluation. For the Jacobian function it is similar. If X has a size of (m x n), Y = J(X) will have a size of (m x nobj x n). The default is false.
 -	**`FDForceHess`**: When using FD, defines whether to approximate a full Hessian at each iteration instead of several products (v' * H). By default, it is false, or true if n <= 5. If opts.LargeScale is specified, this setting has no effect as the idea is not to form (n x n) matrices. Thus, the product (v' * H) will be favored.
 
 ### Printing and Plotting Options
 The following options are all related to the printing and plotting capabilities of **`pt.trace`** and **`pt.minimize`**. Basically, the entire output can be replaced by specifying custom output function handles.
 
--	**`OptOutFcn`**: Function to display info or to stop the optimization algorithm. It has the following format:
-function [stop, it1, it2, stats] = optoutfcn(info)
+-	**`OptOutFcn`**: Function to display info or to stop the optimization algorithm. It has the following format:<br/>
+**`function [stop, it1, it2, stats] = optoutfcn(info)`**<br/>
 where info is a structure containing the current variables being utilized by the algorithm:
     - **`it0, it1, it2`**: Previous, current, and next iteration structures. See **`pt.minit`** for the list of fields. The pt.minit function is an auxiliary function to build the iteration structures utilized to store temporal data as function values etc. per iteration.
     - **`objfun, x0, funvals0, lb, ub, lincon, nonlcon, multfun, opts`**: The input parameters to the optimization function.
