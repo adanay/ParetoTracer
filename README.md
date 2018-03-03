@@ -424,3 +424,5 @@ The **`eval`** package contains helper functions related to the evaluation of ob
 ### utils
 Finally, the **`utils`** package gathers several helper functions of general purposes that do not fit into any of the other packages.
 
+## How to include in your project
+
