@@ -335,20 +335,21 @@ where info is a structure containing the current variables being utilized by the
     - If **`discard = true`** is returned, the current predictor or corrector point will be discarded.
     - If **`it1, itp, itc, stats`**, are returned, they will replace the values utilized by the algorithm.    
     
-**Note**: The current implementation comes with one default output function for pt.trace. See pt.traceout. This function internally uses **`pt.traceprint`** and **`pt.traceplot`**. These can be used as starting points for customized output functions.
+**Note**: The current implementation comes with one default output function for pt.trace. See **`pt.traceout`**. This function internally uses **`pt.traceprint`** and **`pt.traceplot`**. These can be used as starting points for customized output functions.
+
+The following options are designed to be utilized by the output (printing and plotting) functions only.
 
 -	**`MOPName`**: Name of the multi-objective optimization problem (MOP) being solved. 
 -	**`PCIndent, OptIndent`**: Initial indentation for the output of the algorithms. By default it is ''.
 -	**`IndentGrowFactor`**: It is '  ' by default.
 -	**`PCSuppressOutput, PCSuppressPrint, PCSuppressPlot, 
 OptSuppressOutput, OptSuppressPrint, OptSuppressPlot`**: Controls the output. They are all false by default.
--	**`OptPrintMode`**: 'off', 'iter', 'result'. The default is 'result'.
--	**`PCPrintMode`**: 'off', 'iter', 'result'. The default is 'result'.
--	**`OptPlotMode`**: 'off', 'iter', 'result'. The default is 'iter'.
--	**`PCPlotMode`**: 'off', 'iter', 'result', 'flow'. The default is 'result'.
-    - The choice 'iter' plots the predictor and corrector steps. Following one example of how the setting 'iter' would look like. Note that the predictors are magenta, and the correctors are green. Execute the script x_trace.bfgs.eq.sproblem2_n100_nobj2 for a similar result.
- 
-    - The choice 'flow' determines whether to plot a line between the previous and current corrector. By default, it is true for the bi-objective case and false for the general case. Below there is an example of how this setting would look like. Check x_trace.bfgs.dtlz.cdtlz2_n100_nobj3. 
+-	**`OptPrintMode`**: **`'off', 'iter', 'result'`**. The default is 'result'.
+-	**`PCPrintMode`**: **`'off', 'iter', 'result'`**. The default is 'result'.
+-	**`OptPlotMode`**: **`'off', 'iter', 'result'`**. The default is 'iter'.
+-	**`PCPlotMode`**: **`'off', 'iter', 'result', 'flow'`**. The default is 'result'.
+    - The choice **`'iter'`** plots the predictor and corrector steps. Following one example of how the setting 'iter' would look like. Note that the predictors are magenta, and the correctors are green. Execute the script **`x_trace.bfgs.eq.sproblem2_n100_nobj2`** for a similar result.
+    - The choice **`'flow'`** determines whether to plot a line between the previous and current corrector. By default, it is true for the bi-objective case and false for the general case. Below there is an example of how this setting would look like. Check **`x_trace.bfgs.dtlz.cdtlz2_n100_nobj3`**.    
     
  -	**`OptOutFcn`**: Function to display info or to stop the optimization algorithm. It has the following format:<br/>
 **`function [stop, it1, it2, stats] = optoutfcn(info)`**<br/>
