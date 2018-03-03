@@ -381,17 +381,21 @@ OptSuppressOutput, OptSuppressPrint, OptSuppressPlot`**: Controls the output. Th
 
 ## Packages
 ### pt
-pt is the main package. It contains the functions pt.trace and pt.minimize.
+**`pt`** is the main package. It contains the functions **`pt.trace`** and **`pt.minimize`**.
 
 ### fd
-The finite differences implementation can be found in this package. The main functions are fd.jacobian and fd.hessian.
+The finite differences implementation can be found in this package. The main functions are **`fd.jacobian`** and **`fd.hessian`**.
 ### qn
-The Quasi-Newton related algorithms are placed into this package. The main functions are qn.bfgs and qn.bfgsmodchol which performs the BFGS update on the Cholesky factors.
+The Quasi-Newton related algorithms are placed into this package. The main functions are **`qn.bfgs`** and **`qn.bfgsmodchol`** which performs the BFGS update on the Cholesky factors.
 
 ### mop
 This package contains the implementation of several benchmark problems. The problems are organized into sub-packages by benchmark name. See the next figure. 
+
+![x_trace](img/readme2.png)
    
-Each file represents a problem builder, i.e., they return handles to the objective functions, derivatives, constraints, etc. depending on the case. In other words, they build the parameters necessary to call pt.trace and pt.minimize. Note that pt.trace and pt.minimize have no dependency to the problem builders. The user can develop their objective functions, derivative, and other parameters completely isolated from this package. See one example on how to use the problem builders:
+Each file represents a problem builder, i.e., they return handles to the objective functions, derivatives, constraints, etc. depending on the case. In other words, they build the parameters necessary to call pt.trace and pt.minimize. Note that pt.trace and pt.minimize have no dependency to the problem builders. The users can develop their objective functions, derivative, and other parameters completely isolated from this package. See one example on how to use the problem builders:
+
+```
 n = 3;
 nobj = 2;
  
@@ -405,15 +409,18 @@ opts.PCStepObj = 0.1;
 x0 = [0 0 0];
  
 [result, stats, EXITFLAG] = pt.trace(objfun, x0, [], lb, ub, lincon, nonlcon, multfun, opts);
+```
 
 ### scells
-PT comes with the implementation of a data structure described in [Reference here]. This data structure is utilized to keep track of the part of the optimal manifold that is already computed and is based on a subdivision of the search space into boxes. The only difference of our approach to the one in [Reference here] is that we construct the partition in objective space and not in parameter space. See the figure below obtained by calling x_trace.exact.misc.quad_n100_nobj3. The option PCDrawCells must be set to true to obtain this kind of plot.
+PT comes with the implementation of a data structure described in [4]. This data structure is utilized to keep track of the part of the optimal manifold that is already computed and is based on a subdivision of the search space into boxes. The only difference of our approach to the one in [4] is that we construct the partition in objective space and not in parameter space. See the figure below obtained by calling **`x_trace.exact.misc.quad_n100_nobj3`**. The option **`PCDrawCells`** must be set to true to obtain this kind of plot.
+![x_trace](img/readme_quad_n100_nobj3.png)
  
 ### x_min and x_trace
 These packages are designed to group several ready-to-use examples. See the section Ready-to-use Examples.
-eval and val
-The eval package contains helper functions related to the evaluation of objective functions, constrains, derivatives, and multiply functions coming from the user. On the other hand, the val package groups validation-related functions.
+
+### eval and val
+The **`eval`** package contains helper functions related to the evaluation of objective functions, constrains, derivatives, and multiply functions coming from the user. On the other hand, the **`val`** package groups validation-related functions.
 
 ### utils
-Finally, the utils package gathers several helper functions of general purposes that do not fit into any of the other packages.
+Finally, the **`utils`** package gathers several helper functions of general purposes that do not fit into any of the other packages.
 
