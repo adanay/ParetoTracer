@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [objfun, lb, ub, lincon, nonlcon, multfun, sizes, opts, pset, pfront] = wfg6(sizes, k, l, doval)
 % WFG6 multiobjective optimization problem.
 % n >= 2, nobj >= 2, n >= nobj.
@@ -10,6 +6,10 @@ function [objfun, lb, ub, lincon, nonlcon, multfun, sizes, opts, pset, pfront] =
 % 1 <= k <= n. k is the position parameter and must be divisible by nobj - 1.
 % 1 <= l <= n - k. l is the distance parameter. It does not need to be
 % divisible by 2.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 % problem sizes
 [n, nobj] = val.valmopsizes(sizes, true);

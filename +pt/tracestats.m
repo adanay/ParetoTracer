@@ -1,12 +1,12 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [stats] = tracestats(stats, optstats)
 % If used without arguments, initializes the Pareto Tracer method 
 % statistics structure.
 % Otherwise, updates the PT statistics values with those obtained by the 
 % corrector phase. 
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 if nargin == 0
   stats = struct(...

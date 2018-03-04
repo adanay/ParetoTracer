@@ -1,9 +1,9 @@
+function [lb, ub] = valboxcon(lb, ub, n, doval)
+% Validates the box constraints of an optimization solver.
+
 % Copyright (c) 2018 Adanay Martín & Oliver Schütze.
 % This file is subject to the terms and conditions defined in
 % the file 'LICENSE.txt', which is part of this source code package.
-
-function [lb, ub] = valboxcon(lb, ub, n, doval)
-% Validates the box constraints of an optimization solver.
 
 limit = 1e16;
 

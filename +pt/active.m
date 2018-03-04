@@ -1,12 +1,12 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [it1] = active(it1, lb, ub, force, opts)
 % Determines the active inequality constraints.
 % If force is true, the active constraints will be re-computed even if they
 % are not empty.
 % Assumes that all function values it1.fx, it1.ax, it.cx, are already computed.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 if force || isempty(it1.xActive) || isempty(it1.xLbActive) || isempty(it1.xUbActive)
   [it1.xActive, it1.xLbActive, it1.xUbActive] = utils.isactive(it1.x, lb, ub, opts.ConstActiveTol);

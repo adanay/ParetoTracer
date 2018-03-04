@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [a, la, ua] = isactive(x, lb, ub, tol)
 % Active set using logical indices.
 % lb and ub are the box constraints.
@@ -9,6 +5,10 @@ function [a, la, ua] = isactive(x, lb, ub, tol)
 % or a matrix of size (m x n) where m is the number of individuals and n is
 % the number of variables.
 % tol > 0 is a tolerance. 
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 [m, n] = size(x); % m is the number of individuals and n is the number of variables.
 

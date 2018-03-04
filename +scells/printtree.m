@@ -1,13 +1,13 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [] = printtree(tree, lb, ub)
 % Prints the tree built by the subdivision algorithm.
 %
 % tree is a binary tree that represents a partition of the space 
 % constrained by lb and ub. The smallest partitions are called cells. Each 
 % leaf of the tree represents an existent cell.  
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 fprintf('\n');
 printnode(tree, lb, ub, 0);

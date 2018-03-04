@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [contained] = cellcontains(c, r, x, lb, ub)
 % Determines whether or not a point belongs to a cell.
 %
@@ -13,6 +9,10 @@ function [contained] = cellcontains(c, r, x, lb, ub)
 % lb and ub are vectors that represent the box constraints.
 %
 % Returns true if the point belongs to the cell or false otherwise.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 if isempty(c) || isempty(r)
   contained = false(m, 1);

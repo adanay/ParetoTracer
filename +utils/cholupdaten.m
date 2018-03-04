@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [R1, p] = cholupdaten(R, X, dim1, dim2, o)
 % Updates the Cholesky factorization of all square matrices contained in
 % R(... : ... : ...) with X(... : ... : ...).
@@ -15,6 +11,10 @@ function [R1, p] = cholupdaten(R, X, dim1, dim2, o)
 % - size(R1) = size(R)
 % - R1(... : ... : ...) = cholupdate(R(... : ... : ...), X(... : ... 1 ...), o)
 %         dim1  dim2                      dim1  dim2          dim1  dim2
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 if nargin < 3
   dim1 = 1;

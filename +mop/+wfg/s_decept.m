@@ -1,13 +1,13 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [value] = s_decept(y, A, B, C)
 % A in (0, 1).
 % 0 < B << 1.
 % 0 < C << 1.
 % A - B > 0.
 % A + B < 1.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 t = abs(y - A) - B;
 t1 = floor(y - A + B) * (1 - C + (A - B) / B) / (A - B);

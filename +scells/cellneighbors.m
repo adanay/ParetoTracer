@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [b] = cellneighbors(c, r, lb, ub)
 % Determines the neighboring cells in coordinate alignment.
 %
@@ -9,6 +5,10 @@ function [b] = cellneighbors(c, r, lb, ub)
 % lb and ub are vectors that represent the box constraints.
 %
 % Returns the neighboring cells that is a list of the respective centers.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 c = c(:)';
 r = r(:)';

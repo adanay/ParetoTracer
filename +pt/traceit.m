@@ -1,12 +1,12 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [it] = traceit(it, minresult)
 % If used without arguments, initializes the structure that represents one 
 % iteration of the Pareto Tracer algorithm.
 % Otherwise, updates the PT iteration values with those obtained by the 
 % corrector phase. 
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 if nargin == 0
   % Lagrange multipliers

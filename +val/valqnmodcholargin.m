@@ -1,9 +1,9 @@
+function [Lx0, x0, Jx0, x1, Jx1, m, n, nobj] = valqnmodcholargin(Lx0, x0, Jx0, x1, Jx1, opts)
+% Validates the arguments of a QN update method.
+
 % Copyright (c) 2018 Adanay Martín & Oliver Schütze.
 % This file is subject to the terms and conditions defined in
 % the file 'LICENSE.txt', which is part of this source code package.
-
-function [Lx0, x0, Jx0, x1, Jx1, m, n, nobj] = valqnmodcholargin(Lx0, x0, Jx0, x1, Jx1, opts)
-% Validates the arguments of a QN update method.
 
 doval = ~(nargin >= 5 && isfield(opts, 'ValidateInput') && isa(opts.ValidateInput, 'logical') && ~any(opts.ValidateInput));
 

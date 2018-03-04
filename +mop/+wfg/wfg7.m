@@ -1,13 +1,13 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [objfun, lb, ub, lincon, nonlcon, multfun, sizes, opts, pset, pfront] = wfg7(sizes, k, doval)
 % WFG7 multiobjective optimization problem.
 % n >= 2, nobj >= 2, n >= nobj.
 % Suggested nobj = 3, n = nobj + 9 = 12.
 % 0 <= xi <= 2i.
 % 1 <= k <= n. k is the position parameter and must be divisible by nobj - 1.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 % problem sizes
 [n, nobj] = val.valmopsizes(sizes, true);

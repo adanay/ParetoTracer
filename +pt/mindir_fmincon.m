@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [it1, stats, diropts, dirargout] = mindir_fmincon(it0, it1, objfun, lb, ub, lincon, nonlcon, multfun, opts, stats, diropts)
 % Computes the search direction v for a minimization algorithm using the 
 % fmincon algorithm to solve the subproblem below.
@@ -15,6 +11,10 @@ function [it1, stats, diropts, dirargout] = mindir_fmincon(it0, it1, objfun, lb,
 %                  l - x <= v <= u - x
 % Assumes that all function values it1.fx, it1.ax, it1.aeqx, it.cx,
 % it1.ceqx are already computed.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
  
 % sizes
 [n, nobj, na, naeq, nc, nceq] = pt.mopsizes(it1);

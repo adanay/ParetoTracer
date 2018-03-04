@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [objfun] = valobjfun(objfun, doval)
 % Validates the objective function.
 % The objective function must be either a cell array of function handles or 
@@ -13,6 +9,10 @@ function [objfun] = valobjfun(objfun, doval)
 %   + fx = objfun.f(x)
 %   + Jx = objfun.J(x)
 %   + Hx = objfun.H(x)
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 if ~doval 
   % no validation required

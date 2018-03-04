@@ -1,10 +1,10 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [objfun, lb, ub, lincon, nonlcon, multfun, sizes, opts, pset, pfront] = zdt3(sizes, doval)
 % ZDT3 multiobjective optimization problem.
 % Suggested nobj = 2, n = 30.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 % problem sizes
 n = val.valmopsizes(sizes, true);

@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [it1, it2, stats, lsargout] = minls(it0, it1, objfun, lb, ub, lincon, nonlcon, multfun, opts, stats)
 % Linear search using the Armijo condition with bisection.
 % Assumes that all function values it1.fx, it1.ax, it1.aeqx, it.cx,
@@ -13,6 +9,10 @@ function [it1, it2, stats, lsargout] = minls(it0, it1, objfun, lb, ub, lincon, n
 %  0: Number of iterations exceeded opts.OptLsMaxIts.
 %  1: Armijo condition was satisfied.
 % -2: No feasible step length was found.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 % sizes
 [~, ~, na, naeq, nc, nceq] = pt.mopsizes(it1);

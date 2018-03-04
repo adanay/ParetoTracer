@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [c, r] = cellof(x, lb, ub, depth)
 % Determines the cell covering the entered point.
 %
@@ -10,6 +6,10 @@ function [c, r] = cellof(x, lb, ub, depth)
 % depth is the number of subdivision iterations.
 %
 % Returns the center and the radius of the cell.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 x = x(:)';
 lb = lb(:)';

@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [it1, it2] = minmerit(it1, it2, opts)
 % If it2 is empty, computes the merit function value for the current 
 % iteration (it1.Fm) and a measure of its estimated decrease (it1.dm).
@@ -12,6 +8,10 @@ function [it1, it2] = minmerit(it1, it2, opts)
 % Assumes that the square norm of the equalities it1.dceqx is already computed.
 % Assumes that it1.d (a measure of the objectives decrease) is already
 % computed.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 % sizes
 [~, nobj, ~, naeq, ~, nceq] = pt.mopsizes(it1);

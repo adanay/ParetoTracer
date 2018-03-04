@@ -1,11 +1,11 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [] = printdomain(lb, ub, fid)
 % Prints the string representation of a domain set.
 % lb and ub are vectors that represent the box constraints.
 % fid is an optional parameter that represents a file id.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 n = length(lb); % number of variables
 

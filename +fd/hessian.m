@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [Hx, fx, fcount, Jx, Jcount, Jundef, e] = hessian(f, J, x, fx, Jx, lb, ub, v, opts)
 % Calculates the Hessians of a function using finite differences (FD). This
 % function is vectorized, i.e., X may be a matrix where the no of rows
@@ -48,6 +44,10 @@ function [Hx, fx, fcount, Jx, Jcount, Jundef, e] = hessian(f, J, x, fx, Jx, lb, 
 % value of the Jacobian is undefined. In this case the algorithm stops and 
 % set the Hessian to the identity.    
 % e is the step length used to estimate the Hessian.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 % default parameters
 if nargin < 4

@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [D] = detn(A, dim1, dim2)
 % Computes the determinants of all square matrices contained in A(... dim1 ... dim2 ...).
 % The necessary condition for the operation to be successful is that 
@@ -12,6 +8,10 @@ function [D] = detn(A, dim1, dim2)
 % - size(D, dim2) = 1
 % - size(D, dim?) = size(A, dim?)
 % - D(... dim1 ... dim2 ...) = det(A(... dim1 ... dim2 ...))
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 if nargin < 2
   dim1 = 1;

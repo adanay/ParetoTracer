@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [funvals] = valfunvals(funvals, checkW, n, na, naeq, funvalcheck, doval)
 % Validates the function values of a point.
 % funvals are the known function values of some point x.
@@ -21,6 +17,10 @@ function [funvals] = valfunvals(funvals, checkW, n, na, naeq, funvalcheck, doval
 %   + eqlin: Linear equalities.
 %   + ineqnonlin: Nonlinear inequalities.
 %   + eqnonlin: Nonlinear equalities.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 if ~doval 
   % no validation required

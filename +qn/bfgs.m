@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [Bx1] = bfgs(Bx0, x0, Jx0, x1, Jx1, opts)
 % BFGS update of the Hessians.
 %
@@ -17,6 +13,10 @@ function [Bx1] = bfgs(Bx0, x0, Jx0, x1, Jx1, opts)
 % (m x nobj x n). If m = 1, they must be of size (nobj x n).
 %
 % Returns the updated Hessian Bx1.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 [Bx0, x0, Jx0, x1, Jx1, m, n, nobj] = val.valqnargin(Bx0, x0, Jx0, x1, Jx1, opts);
 

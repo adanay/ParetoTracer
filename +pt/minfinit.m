@@ -1,9 +1,9 @@
+function [result, stats] = minfinit(it1, stats)
+% Initializes and fill the structures for the output of a minimization algorithm. 
+
 % Copyright (c) 2018 Adanay Martín & Oliver Schütze.
 % This file is subject to the terms and conditions defined in
 % the file 'LICENSE.txt', which is part of this source code package.
-
-function [result, stats] = minfinit(it1, stats)
-% Initializes and fill the structures for the output of a minimization algorithm. 
 
 result = struct(...
   'x', it1.x,...

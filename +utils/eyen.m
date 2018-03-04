@@ -1,12 +1,12 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [A] = eyen(s, dim1, dim2)
 % Returns a matrix A of the specified size such that
 % A(... : ... : ...) = eye(n),
 %      dim1  dim2
 % where n = s(dim1) = s(dim2).
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 if nargin < 2
   dim1 = 1;

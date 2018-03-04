@@ -1,13 +1,13 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [objfun, lb, ub, lincon, nonlcon, multfun, sizes, opts, pset] = dtlz(sizes, dtlzf, c)
 % DTLZ multiobjective optimization problem.
 %
 % n > 1.
 % lb = 0.
 % ub = 1.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 n = sizes.variables;
 nobj = sizes.objectives;

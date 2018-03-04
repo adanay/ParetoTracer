@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [c, r, inserted, index] = recover(tree, depth, x, lb, ub, index)
 % Inserts the covering cell of a point into the tree as a leaf.
 %
@@ -20,6 +16,10 @@ function [c, r, inserted, index] = recover(tree, depth, x, lb, ub, index)
 % the tree.
 % If the cell was already in the tree, returns the corresponding index in 
 % an external list.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 x = x(:)';
 n = length(x);

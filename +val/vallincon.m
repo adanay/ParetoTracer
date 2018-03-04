@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [lincon, na, naeq] = vallincon(lincon, n, doval)
 % Validates the linear constraints of an optimization solver.
 % The lincon must be either a cell array of matrices or a struct. I.e.,
@@ -12,6 +8,10 @@ function [lincon, na, naeq] = vallincon(lincon, n, doval)
 %   + b = lincon.b
 %   + Aeq = lincon.Aeq 
 %   + beq = lincon.beq
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 if ~doval 
   % no validation required

@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [opts] = defopts()
 % Default options for finite differences (FD). 
 % - FDType: FD, used to estimate gradients, are either: 
@@ -41,6 +37,10 @@ function [opts] = defopts()
 %   that is complex, NaN, or Inf. 
 %   When approximating Hessians, if the Jacobian is not valid, a warning 
 %   will be thrown and the Hessian will be approximated to the identity.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 opts = struct(...
   'FDType', 'forward',...

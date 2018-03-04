@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [multfun] = valmultfun(multfun, doval)
 % Validates the multiply functions structure.
 % The multiply function must be either a cell array of function handles or 
@@ -33,6 +29,10 @@ function [multfun] = valmultfun(multfun, doval)
 %   + vHceqx = multfun.vHceq(x, v)
 %   + Hceqwx = multfun.Hceqw(x, w)
 %   + Hceqwvx = multfun.Hceqwv(x, w, v)
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 if ~doval 
   % no validation required

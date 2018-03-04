@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [objfun, lb, ub, lincon, nonlcon, multfun, sizes, opts, pset, pfront] = wfg(sizes, doval, h, t, A, S, D, zmax)
 % General WFG function.
 %
@@ -21,6 +17,10 @@ function [objfun, lb, ub, lincon, nonlcon, multfun, sizes, opts, pset, pfront] =
 % D > 0 is a distant scaling constant. The default value is one.
 % zmax is the vector of the upper bounds for the variables. The lower
 % bounds are assumed to be zero. The default value is 2 * (1 : n)'.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 n = sizes.variables;
 M = sizes.objectives; % nobj

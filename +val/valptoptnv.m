@@ -1,9 +1,9 @@
+function [isvalid] = valptoptnv(name, value, n)
+% Validates the Pareto Tracer options.
+
 % Copyright (c) 2018 Adanay Martín & Oliver Schütze.
 % This file is subject to the terms and conditions defined in
 % the file 'LICENSE.txt', which is part of this source code package.
-
-function [isvalid] = valptoptnv(name, value, n)
-% Validates the Pareto Tracer options.
 
 if isempty(value)
   isvalid = true;

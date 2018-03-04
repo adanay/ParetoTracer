@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [] = plotpareto(ps, pf, opts, varargin)
 % Plots the Pareto set and front.
 % ps is the Pareto set.
@@ -15,6 +11,10 @@ function [] = plotpareto(ps, pf, opts, varargin)
 % - PlotPSDims, PlotPFDims: Respectively the dimensions of the PS and PF to
 %   be plotted. By default they are both 1 : 3.
 % It can be empty.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 n = size(ps, 2);
 nobj = size(pf, 2);

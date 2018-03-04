@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [S, m] = usimplex(n, m)
 % Uniform (n - 1)-simplex of approximately m points uniformly distributed.
 % Each point component is between 0 and 1, i.e., 0 <= x1 <= 1, ..., 0 <= xn

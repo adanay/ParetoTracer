@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [nonlcon] = valnonlcon(nonlcon, doval)
 % Validates the nonlinear constraints function.
 % The nonlcon function must be either a cell array of function handles or 
@@ -16,6 +12,10 @@ function [nonlcon] = valnonlcon(nonlcon, doval)
 %   + Jceqx = nonlcon.Jceq(x) 
 %   + Hcx = nonlcon.Hc(x)
 %   + Hceqx = nonlcon.Hceq(x)
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 if ~doval 
   % no validation required

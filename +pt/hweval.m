@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [Hwx, it1, stats] = hweval(w, it0, it1, objfun, lb, ub, lincon, nonlcon, multfun, force, opts, stats)
 % Computes the product Hw = H1 * w1 + H2 * w2 + ... + Hnobj * wnobj.
 % If force is true, the weighted Hessian will be recomputed even if it is
@@ -10,6 +6,10 @@ function [Hwx, it1, stats] = hweval(w, it0, it1, objfun, lb, ub, lincon, nonlcon
 % supposed to be required in  case that opts.HessModif ~= 'off'). So far 
 % only the predictor uses this function and positive definiteness is not a 
 % requirement to compute the tangent.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 if isempty(w) && ~isempty(force) && ~force && ~isempty(it1.Hwx)
   return

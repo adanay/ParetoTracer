@@ -1,11 +1,11 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [undef] = checkval(x, name, iswarning)
 % Determines whether a value has an undefined entry an throws an  
 % error if it is the case.
 % If iswarning = true, a warning will be displayed instead.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 undef = false;
 

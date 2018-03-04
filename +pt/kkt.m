@@ -1,9 +1,9 @@
+function [it1, stats, dirargout] = kkt(it0, it1, objfun, lb, ub, lincon, nonlcon, multfun, force, opts, stats, kktopts)
+% Ensures the KKT multipliers are computed.
+
 % Copyright (c) 2018 Adanay Martín & Oliver Schütze.
 % This file is subject to the terms and conditions defined in
 % the file 'LICENSE.txt', which is part of this source code package.
-
-function [it1, stats, dirargout] = kkt(it0, it1, objfun, lb, ub, lincon, nonlcon, multfun, force, opts, stats, kktopts)
-% Ensures the KKT multipliers are computed.
 
 if ~all(it1.w.objectives == 0) && ~force
   return

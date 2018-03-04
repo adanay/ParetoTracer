@@ -1,13 +1,13 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [Hwvx, it1, stats] = hwveval(w, v, it0, it1, objfun, lb, ub, lincon, nonlcon, multfun, opts, stats)
 % Computes the product Hwv = (H1 * w1 + H2 * w2 + ... + Hnobj * wnobj) * v.
 % This method does not ensure that Hwx is positive definite (which is 
 % supposed to be required in  case that opts.HessModif ~= 'off'). So far 
 % only the predictor uses this function and positive definiteness is not a 
 % requirement to compute the tangent.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 % the Hessian is known to be the identity
 if ~isempty(it1.Hident) && it1.Hident

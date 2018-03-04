@@ -1,9 +1,9 @@
+function [objfun, x0, funvals0, lb, ub, lincon, nonlcon, multfun, opts] = valptargin(objfun, x0, funvals0, checkW, lb, ub, lincon, nonlcon, multfun, opts)
+% Validates the arguments of a Pareto Tracer algorithm.
+
 % Copyright (c) 2018 Adanay Martín & Oliver Schütze.
 % This file is subject to the terms and conditions defined in
 % the file 'LICENSE.txt', which is part of this source code package.
-
-function [objfun, x0, funvals0, lb, ub, lincon, nonlcon, multfun, opts] = valptargin(objfun, x0, funvals0, checkW, lb, ub, lincon, nonlcon, multfun, opts)
-% Validates the arguments of a Pareto Tracer algorithm.
 
 doval = ~(nargin >= 7 && isfield(opts, 'ValidateInput') && isa(opts.ValidateInput, 'logical') && ~any(opts.ValidateInput));
 

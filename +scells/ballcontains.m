@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [c, r, index] = ballcontains(tree, depth, list, x, e, lb, ub)
 % Attempts to determine whether there already exists a point close to x. It  
 % is important to note that only points contained in the neighboring cells  
@@ -25,6 +21,10 @@ function [c, r, index] = ballcontains(tree, depth, list, x, e, lb, ub)
 %
 % Returns the center and radius of the covering cell of x (or a close 
 % neighbor of x).
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 x = x(:)';
 

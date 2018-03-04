@@ -1,9 +1,9 @@
+function [x, v, w, m] = valmopargin(x, v, w, n, nobj, doval)
+% Validates the input for a vectorized mop function.
+
 % Copyright (c) 2018 Adanay Martín & Oliver Schütze.
 % This file is subject to the terms and conditions defined in
 % the file 'LICENSE.txt', which is part of this source code package.
-
-function [x, v, w, m] = valmopargin(x, v, w, n, nobj, doval)
-% Validates the input for a vectorized mop function.
 
 x = x(:, :);
 if isvector(x)

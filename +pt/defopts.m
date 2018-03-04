@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [opts] = defopts(n, nobj)
 % Default options for Pareto Tracer.
 % - HessApprox: Ignored if the Hessian or the Hessian multiply functions 
@@ -139,6 +135,10 @@ function [opts] = defopts(n, nobj)
 %
 % Additionally, all the options for the computation of finite differences
 % can be specified. See fd.defopts for the list of available choices.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 opts = struct(...
   'HessApprox', 'bfgs',...% (bfgs, fd, off)

@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [it1, itps, stats, stop] = predict(it0, it1, result, objfun, x0, funvals0, lb, ub, lincon, nonlcon, multfun, diropts, opts, stats, pcoutfcn)
 % Computes the predictor(s) for the Pareto Tracer algorithm.
 % It will try to compute one predictor for each tangent direction it1.v.
@@ -21,6 +17,10 @@ function [it1, itps, stats, stop] = predict(it0, it1, result, objfun, x0, funval
 % Assumes that all objective and nonlinear constraint Jacobians it1.Jx,
 % it1.Jcx, it1.Jceqx are already computed.
 % Assumes that the Lagrange multipliers w are already computed.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 stop = false;
 discard = false;

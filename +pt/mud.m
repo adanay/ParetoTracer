@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [mu, R] = mud(Mu, J, d)
 % Computes the mu vectors given a set of vectors in objective space.
 % A linear system of equations is solved for this purpose:
@@ -11,6 +7,10 @@ function [mu, R] = mud(Mu, J, d)
 %
 % d is of size (m x nobj) where nobj is the number of objectives and m is
 % the number of directions we want to follow in objective space.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 % sizes
 nobj = size(J, 1);

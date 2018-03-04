@@ -1,9 +1,9 @@
+function [it0, it1, stats] = mininit(objfun, x0, funvals0, lincon, nonlcon, opts)
+% Initializes the structures required by a minimization algorithm. 
+
 % Copyright (c) 2018 Adanay Martín & Oliver Schütze.
 % This file is subject to the terms and conditions defined in
 % the file 'LICENSE.txt', which is part of this source code package.
-
-function [it0, it1, stats] = mininit(objfun, x0, funvals0, lincon, nonlcon, opts)
-% Initializes the structures required by a minimization algorithm. 
 
 % statistics
 stats = pt.minstats();

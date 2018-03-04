@@ -1,12 +1,12 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [it1, stats] = jeval(it1, objfun, lb, ub, nonlcon, force, opts, stats)
 % Ensures that all objective and nonlinear constraint Jacobians of a MOP 
 % are evaluated.
 % If force is true, the Jacobian values will be recomputed even if they are
 % not empty.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 n = length(it1.x);
 

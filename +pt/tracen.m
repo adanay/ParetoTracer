@@ -1,9 +1,9 @@
+function [itlast, result, stats, EXITFLAG] = tracen(it0, it1, result, objfun, x0, funvals0, lb, ub, lincon, nonlcon, multfun, opts, stats, pcoutfcn)
+% Performs the continuation for MOPs with 3 or more objectives.
+
 % Copyright (c) 2018 Adanay Martín & Oliver Schütze.
 % This file is subject to the terms and conditions defined in
 % the file 'LICENSE.txt', which is part of this source code package.
-
-function [itlast, result, stats, EXITFLAG] = tracen(it0, it1, result, objfun, x0, funvals0, lb, ub, lincon, nonlcon, multfun, opts, stats, pcoutfcn)
-% Performs the continuation for MOPs with 3 or more objectives.
 
 if ~exist('pcoutfcn', 'var')
   pcoutfcn = [];

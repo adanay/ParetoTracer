@@ -1,11 +1,11 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [value] = r_nonsep(y, i, A)
 % A in {1, 2,...,|y|}.
 % |y| mod A = 0.
 % i represents the considered indices from y.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 y = y(:, i);
 n = size(y, 2);

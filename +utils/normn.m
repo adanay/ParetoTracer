@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [N] = normn(A, dim1, dim2, p)
 % Computes the p-norm of all matrices contained in A(... dim1 ... dim2 ...).
 % N is the p-norm matrix where 
@@ -10,6 +6,10 @@ function [N] = normn(A, dim1, dim2, p)
 % - size(N, dim2) = 1
 % - size(N, dim?) = size(A, dim?)
 % - N(... dim1 ... dim2 ...) = norm(A(... dim1 ... dim2 ...), p)
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 if nargin < 2
   dim1 = 1;

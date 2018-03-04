@@ -1,0 +1,139 @@
+<deployment-project plugin="plugin.toolbox" plugin-version="1.0">
+  <configuration build-checksum="2198912849" file="C:\Users\Adanay\OneDrive\MyGitHub\ParetoTracer\master\ParetoTracer\ParetoTracer.prj" location="C:\Users\Adanay\OneDrive\MyGitHub\ParetoTracer\master\ParetoTracer" name="ParetoTracer" target="target.toolbox" target-name="Package Toolbox">
+    <param.appname>ParetoTracer</param.appname>
+    <param.authnamewatermark>Adanay Martin</param.authnamewatermark>
+    <param.email>adanay@gmail.com</param.email>
+    <param.company />
+    <param.summary>Pareto Tracer: a predictor–corrector method for multi-objective optimization problems</param.summary>
+    <param.description>The Pareto Tracer (PT) is a predictor-corrector method for the numerical treatment of sufficiently smooth multi-objective optimization problems (MOP). The algorithm performs a continuation along the set of (local) solutions of a given MOP with k objectives and can cope with equality and box constraints. The implementation to handle general inequalities is still under revision.</param.description>
+    <param.screenshot />
+    <param.version>1.0</param.version>
+    <param.output>${PROJECT_ROOT}\ParetoTracer.mltbx</param.output>
+    <param.products.name>
+      <item>MATLAB</item>
+      <item>Mapping Toolbox</item>
+      <item>Phased Array System Toolbox</item>
+      <item>Optimization Toolbox</item>
+      <item>Robust Control Toolbox</item>
+    </param.products.name>
+    <param.products.id>
+      <item>1</item>
+      <item>11</item>
+      <item>112</item>
+      <item>6</item>
+      <item>5</item>
+    </param.products.id>
+    <param.products.version>
+      <item>8.5</item>
+      <item>4.1</item>
+      <item>3.0</item>
+      <item>7.2</item>
+      <item>5.3</item>
+    </param.products.version>
+    <param.platforms />
+    <param.guid>ddb53a46-5542-429d-9ffd-3ad82a838b42</param.guid>
+    <param.exclude.filters>% List files contained in your toolbox folder that you would like to exclude
+% from packaging.  Excludes should be listed relative to the toolbox folder.
+% Some examples of how to specify excludes are provided below:
+%
+% A single file in the toolbox folder:
+% .svn
+%
+% A single file in a subfolder of the toolbox folder:
+% example/.svn
+%
+% All files in a subfolder of the toolbox folder:
+.git 
+img
+%
+% All files of a certain name in all subfolders of the toolbox folder:
+% **/.svn
+%
+% All files matching a pattern in all subfolders of the toolbox folder:
+% **/*.bak
+%</param.exclude.filters>
+    <param.examples>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;examples/&gt;</param.examples>
+    <param.demosxml />
+    <param.apps />
+    <param.docs />
+    <unset>
+      <param.company />
+      <param.screenshot />
+      <param.version />
+      <param.output />
+      <param.platforms />
+      <param.demosxml />
+      <param.apps />
+      <param.docs />
+    </unset>
+    <fileset.rootdir>
+      <file>C:\Users\Adanay\OneDrive\MyGitHub\ParetoTracer\master\ParetoTracer</file>
+    </fileset.rootdir>
+    <fileset.rootfiles>
+      <file>${PROJECT_ROOT}\+eval</file>
+      <file>${PROJECT_ROOT}\+fd</file>
+      <file>${PROJECT_ROOT}\+mop</file>
+      <file>${PROJECT_ROOT}\+pt</file>
+      <file>${PROJECT_ROOT}\+qn</file>
+      <file>${PROJECT_ROOT}\+scells</file>
+      <file>${PROJECT_ROOT}\+utils</file>
+      <file>${PROJECT_ROOT}\+val</file>
+      <file>${PROJECT_ROOT}\+x_min</file>
+      <file>${PROJECT_ROOT}\+x_trace</file>
+      <file>${PROJECT_ROOT}\licence</file>
+      <file>${PROJECT_ROOT}\README.md</file>
+    </fileset.rootfiles>
+    <fileset.depfun.included />
+    <fileset.depfun.excluded />
+    <fileset.package />
+    <build-deliverables>
+      <file location="C:\Users\Adanay\OneDrive\MyGitHub\ParetoTracer\master\ParetoTracer" name="ParetoTracer.mltbx" optional="false">C:\Users\Adanay\OneDrive\MyGitHub\ParetoTracer\master\ParetoTracer\ParetoTracer.mltbx</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>C:\Program Files\MATLAB\MATLAB Production Server\R2015a</root>
+      <toolboxes>
+        <toolbox name="matlabhdlcoder" />
+        <toolbox name="fixedpoint" />
+        <toolbox name="embeddedcoder" />
+        <toolbox name="matlabcoder" />
+      </toolboxes>
+      <toolbox>
+        <matlabhdlcoder>
+          <enabled>true</enabled>
+        </matlabhdlcoder>
+      </toolbox>
+      <toolbox>
+        <fixedpoint>
+          <enabled>true</enabled>
+        </fixedpoint>
+      </toolbox>
+      <toolbox>
+        <embeddedcoder>
+          <enabled>true</enabled>
+        </embeddedcoder>
+      </toolbox>
+      <toolbox>
+        <matlabcoder>
+          <enabled>true</enabled>
+        </matlabcoder>
+      </toolbox>
+    </matlab>
+    <platform>
+      <unix>false</unix>
+      <mac>false</mac>
+      <windows>true</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>false</linux>
+      <solaris>false</solaris>
+      <osver>6.2</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>win64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>

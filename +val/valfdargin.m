@@ -1,9 +1,9 @@
+function [f, J, x, m, n, fx, Jx, Jundef, lb, ub, v, opts] = valfdargin(order, f, J, x, fx, Jx, lb, ub, v, opts)
+% Validates the arguments of a finite differences approximation method.
+
 % Copyright (c) 2018 Adanay Martín & Oliver Schütze.
 % This file is subject to the terms and conditions defined in
 % the file 'LICENSE.txt', which is part of this source code package.
-
-function [f, J, x, m, n, fx, Jx, Jundef, lb, ub, v, opts] = valfdargin(order, f, J, x, fx, Jx, lb, ub, v, opts)
-% Validates the arguments of a finite differences approximation method.
 
 doval = ~(nargin >= 10 && isfield(opts, 'ValidateInput') && isa(opts.ValidateInput, 'logical') && ~any(opts.ValidateInput));
 

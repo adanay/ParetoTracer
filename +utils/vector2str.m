@@ -1,9 +1,9 @@
+function [str] = vector2str(x, format)
+% String representation of a vector.
+
 % Copyright (c) 2018 Adanay Martín & Oliver Schütze.
 % This file is subject to the terms and conditions defined in
 % the file 'LICENSE.txt', which is part of this source code package.
-
-function [str] = vector2str(x, format)
-% String representation of a vector.
 
 if ~exist('format', 'var')
   format = '%e';

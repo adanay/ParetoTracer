@@ -1,9 +1,9 @@
+function [objfun, lb, ub, lincon, nonlcon, multfun, sizes, opts, pset, pfront] = torus(sizes, doval, a, r, R)
+% Quadratic problem with one torus equality constraint.
+
 % Copyright (c) 2018 Adanay Martín & Oliver Schütze.
 % This file is subject to the terms and conditions defined in
 % the file 'LICENSE.txt', which is part of this source code package.
-
-function [objfun, lb, ub, lincon, nonlcon, multfun, sizes, opts, pset, pfront] = torus(sizes, doval, a, r, R)
-% Quadratic problem with one torus equality constraint.
 
 if nargin < 2
   doval = false;

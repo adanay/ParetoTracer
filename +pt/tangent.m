@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [it1, stats] = tangent(it0, it1, objfun, lb, ub, lincon, nonlcon, multfun, force, objToMin, opts, stats)
 % Computes v, the tangent(s) to the Pareto set. v is of size (m x n) where
 % n is the number of variables and m is the number of tangent vectors,  
@@ -31,6 +27,10 @@ function [it1, stats] = tangent(it0, it1, objfun, lb, ub, lincon, nonlcon, multf
 % Assumes that all objective and nonlinear constraint Jacobians it1.Jx, 
 % it1.Jcx, it1.Jceqx are already computed.
 % Assumes that the Lagrange multipliers w are already computed.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 if ~force && ~isempty(it1.v)
   return

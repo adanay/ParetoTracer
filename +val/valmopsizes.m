@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [n, nobj, na, naeq, nc, nceq] = valmopsizes(sizes, doval)
 % Validates the sizes passed to a mop builder.
 % The sizes must be either a cell array of numbers or 
@@ -14,6 +10,10 @@ function [n, nobj, na, naeq, nc, nceq] = valmopsizes(sizes, doval)
 %   + sizes.eqlin = naeq
 %   + sizes.ineqnonlin = nc
 %   + sizes.eqnonlin = nceq
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 if ~doval 
   % no validation required

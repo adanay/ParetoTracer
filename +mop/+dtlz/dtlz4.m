@@ -1,12 +1,12 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [objfun, lb, ub, lincon, nonlcon, multfun, sizes, opts, pset, pfront] = dtlz4(sizes, alpha, doval)
 % DTLZ4 multiobjective optimization problem.
 % n >= 2, nobj >= 2, n >= nobj.
 % alpha > 0.
 % Suggested nobj = 3, n = nobj + 9 = 12.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 % problem sizes
 [n, nobj] = val.valmopsizes(sizes, true);

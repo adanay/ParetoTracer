@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [R] = choln(A, dim1, dim2, type)
 % Computes the Cholesky factorization of all square matrices contained in 
 % A(... : ... : ...).
@@ -14,6 +10,10 @@ function [R] = choln(A, dim1, dim2, type)
 % - R(... : ... : ...) = chol(A(... : ... : ...))
 %        dim1  dim2                dim1  dim2
 % If type = 'lower', a lower triangular matrix is produced.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 if nargin < 2
   dim1 = 1;

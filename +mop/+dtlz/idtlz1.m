@@ -1,11 +1,11 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [objfun, lb, ub, lincon, nonlcon, multfun, sizes, opts, pset, pfront] = idtlz1(sizes, doval)
 % DTLZ1 multiobjective optimization problem.
 % n >= 2, nobj >= 2, n >= nobj.
 % Suggested nobj = 3, n = nobj + 4 = 7.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 % problem sizes
 [n, nobj] = val.valmopsizes(sizes, true);

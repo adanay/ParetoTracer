@@ -1,11 +1,11 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [vHx, it1, stats] = vheval(v, it0, it1, objfun, lb, ub, multfun, opts, stats)
 % Computes the product v' * Hx.
 % Assumes that all function values it1.fx, it1.ax, it1.aeqx, it.cx,
 % it1.ceqx are already computed.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 % sizes
 nobj = length(it1.fx);

@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [r] = radius(lb, ub, depth)
 % Determines the radius of cells at the current subdivision iteration.
 %
@@ -9,6 +5,10 @@ function [r] = radius(lb, ub, depth)
 % depth is the number of subdivision iterations.
 %
 % Returns the radius of cells. 
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 n = length(lb); % number of variables
 j = mod(depth - 1, n) + 1; % current subdivision coordinate

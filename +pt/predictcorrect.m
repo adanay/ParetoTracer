@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [it1, itcs, result, stats, stop] = predictcorrect(it0, it1, result, objfun, x0, funvals0, lb, ub, lincon, nonlcon, multfun, diropts, opts, stats, pcoutfcn)
 % One continuation step, i.e., one or more predictors and their respective 
 % correctors.
@@ -17,6 +13,10 @@ function [it1, itcs, result, stats, stop] = predictcorrect(it0, it1, result, obj
 % Assumes that all objective and nonlinear constraint Jacobians it1.Jx,
 % it1.Jcx, it1.Jceqx are already computed.
 % Assumes that the Lagrange multipliers w are already computed.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 % one PC iteration: one or more predictors + their corresponding correctors
 stats.PCIts = stats.PCIts + 1;

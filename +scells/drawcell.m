@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [h] = drawcell(c, r, varargin)
 % Draws a cell with the specified center and radius.
 %
@@ -10,6 +6,10 @@ function [h] = drawcell(c, r, varargin)
 % Use property/value pairs to specify additional patch properties.
 %
 % Returns the handle to the graphic object.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 if isempty(c) || isempty(r) 
   return

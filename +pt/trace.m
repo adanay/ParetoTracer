@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [result, stats, EXITFLAG] = trace(objfun, x0, funvals0, lb, ub, lincon, nonlcon, multfun, opts)
 % Pareto Tracer (PT). A continuation method for multiobjective optimization
 % problems (MOPs). Pareto Tracer performs a continuation on the set of (local)
@@ -119,6 +115,10 @@ function [result, stats, EXITFLAG] = trace(objfun, x0, funvals0, lb, ub, lincon,
 % - ceqCount: Number of nonlinear equality constraint evaluations.
 % - JcCount: Number of nonlinear inequality constraint Jacobian evaluations.
 % - JceqCount: Number of nonlinear equality constraint Jacobian evaluations.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 % default parameters
 if nargin < 4

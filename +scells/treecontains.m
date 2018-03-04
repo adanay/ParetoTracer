@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [c, r, index] = treecontains(tree, depth, x, lb, ub)
 % Determines whether the covering cell of a point is into the tree.
 % 
@@ -15,6 +11,10 @@ function [c, r, index] = treecontains(tree, depth, x, lb, ub)
 % Returns the center and radius of the covering cell of x if it exists.
 % If contained, also returns the associated index of x in an external list 
 % if exists.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 c = [];
 r = [];

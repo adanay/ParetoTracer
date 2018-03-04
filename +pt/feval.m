@@ -1,13 +1,13 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [it1, stats] = feval(it1, objfun, lincon, nonlcon, force, opts, stats)
 % Ensures that all objectives and constraints of a MOP are evaluated.
 % If force is true, the function values will be recomputed even if they are
 % not empty.
 % Computes also it1.dcx (square norm of the inequalities) and it1.dceqx
 % (square norm of the inequalities).
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 % objectives
 if force || isempty(it1.fx)

@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [it1, stats] = Mu(it0, it1, objfun, lb, ub, lincon, nonlcon, multfun, force, opts, stats)
 % Computes the Mu space:
 % Hw * Mu = [J' A' Aeq' Jc' Jceq'].
@@ -20,6 +16,10 @@ function [it1, stats] = Mu(it0, it1, objfun, lb, ub, lincon, nonlcon, multfun, f
 % Assumes that all objective and nonlinear constraint Jacobians it1.Jx, 
 % it1.Jcx, it1.Jceqx are already computed.
 % Assumes that the Lagrange multipliers w are already computed.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 if ~force && ~isempty(it1.Mu)
   return

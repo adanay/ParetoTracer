@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [it1, itcs, result, stats, stop] = correct(it0, it1, itps, result, objfun, x0, funvals0, lb, ub, lincon, nonlcon, multfun, opts, stats, pcoutfcn)
 % Computes the corrector(s) for the Pareto Tracer algorithm.
 % It will try to compute one corrector for each predictor.
@@ -15,6 +11,10 @@ function [it1, itcs, result, stats, stop] = correct(it0, it1, itps, result, objf
 % Assumes that all objective and nonlinear constraint Jacobians it1.Jx,
 % it1.Jcx, it1.Jceqx are already computed.
 % Assumes that the Lagrange multipliers w are already computed.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 stop = false;
 

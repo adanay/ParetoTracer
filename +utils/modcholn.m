@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [L, modif] = modcholn(A, dim1, dim2)
 % Computes the modified Cholesky factorization of all square matrices 
 % contained in A(... : ... : ...).
@@ -14,7 +10,11 @@ function [L, modif] = modcholn(A, dim1, dim2)
 % - L(... : ... : ...) = modchol(A(... : ... : ...))
 %        dim1  dim2                   dim1  dim2
 % - modif(... : ... : ...) = true/false (whether the matrix was modified). 
-%           dim1  dim2       
+%           dim1  dim2    
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 if nargin < 2
   dim1 = 1;

@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [Lx1] = bfgsmodchol(Lx0, x0, Jx0, x1, Jx1, opts)
 % BFGS update of the Hessians Cholesky factors.
 % Bx0 = (Lx0 * Lx0').
@@ -20,6 +16,10 @@ function [Lx1] = bfgsmodchol(Lx0, x0, Jx0, x1, Jx1, opts)
 % (m x nobj x n). If m = 1, they must be of size (nobj x n).
 %
 % Returns the updated Hessian Cholesky factor Lx1.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 [Lx0, x0, Jx0, x1, Jx1, m, n, nobj] = val.valqnmodcholargin(Lx0, x0, Jx0, x1, Jx1, opts);
 
