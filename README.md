@@ -431,9 +431,32 @@ There are two ways of integrating PT in other projects:
 2. Install the ParetoTracer toolbox. 
     -	Download the ParetoTracer folder.
     -	Open MATLAB and double-click the ParetoTracer.mltbx file.
+    <kbd>![x_trace](img/ParetoTracer.mltbx.png)</kbd>
     -	Click Install. 
     -	Go to the Toolbox Manager.
+    <kbd>![x_trace](img/ManageCustomToolBoxesMenu.png)</kbd>
     -	You should see the PT toolbox installed.
-    -	Now you can call any function without copying the PT folders in your project (as any other MATLAB function).
+    <kbd>![x_trace](img/ToolBoxManager.png)</kbd>
+    -	Now you can call any function without copying the PT folders in your project.
 
+## References
+
+**[1]** A. Martín and O. Schütze<br/>
+**Pareto Tracer: a predictor–corrector method for multi-objective optimization problems**<br/> 
+Engineering Optimization 50 (3): 516-536, 2018<br/>
+http://www.tandfonline.com/doi/abs/10.1080/0305215X.2017.1327579?journalCode=geno20
+
+**[2]** A. Martín<br/>
+**Pareto Tracer: A Predictor Corrector Method for Multi-objective Optimization Problems**<br/>
+MSc Thesis, Cinvestav-IPN, Mexico, 2014<br/>
+www.cs.cinvestav.mx/TesisGraduados/2014/TesisAdanayMartin.pdf
+
+**[3]** Jörge Fliege, L. M. Graña Drummond, and Benar F. Svaiter<br/> 
+**Newton’s method for multiobjective optimization** <br/>
+SIAM Journal on Optimization, 20(2):602–626, 2009<br/>
+
+**[4]** O. Schütze<br/>
+**Set Oriented Methods for Global Optimization**<br/> 
+PhD thesis, University of Paderborn, 2004<br/>
+http://digital.ub.uni-paderborn.de/ubpb/urn/urn:nbn:de:hbz:466-20040101418
 
