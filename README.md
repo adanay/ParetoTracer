@@ -426,3 +426,14 @@ Finally, the **`utils`** package gathers several helper functions of general pur
 
 ## How to include in your project
 
+There are two ways of integrating PT in other projects:
+1. Just copy the ParetoTracer folder into your project folder.
+2. Install the ParetoTracer toolbox. 
+    -	Download the ParetoTracer folder.
+    -	Open MATLAB and double-click the ParetoTracer.mltbx file.
+    -	Click Install. 
+    -	Go to the Toolbox Manager.
+    -	You should see the PT toolbox installed.
+    -	Now you can call any function without copying the PT folders in your project (as any other MATLAB function).
+
+
