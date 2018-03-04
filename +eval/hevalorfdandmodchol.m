@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [Hx, Hcount, Hundef, Happrox, Hident, Lx, Lmodif,...
           fx, fcount, Jx, Jcount, Jundef, nobj] = hevalorfdandmodchol(H, f, J, x, fx, Jx, lb, ub, iswarning, formident, opts)
 % Vectorized Hessian function evaluation plus a modified Cholesky 
@@ -36,6 +32,10 @@ function [Hx, Hcount, Hundef, Happrox, Hident, Lx, Lmodif,...
 % (after being calculated using one of the vec eval functions).
 % Jx (if entered) is assumed to be of size (m x obj x n) even if m = 1 
 % (after being calculated using one of the vec eval functions).
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 Lx = [];
 Lmodif = [];

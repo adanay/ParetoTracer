@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [vHx, vHcount, vHundef] = vheval(vH, x, v, iswarning, opts)
 % Vectorized Hessian multiply function evaluation.
 % vH = [v' * H1; v' * H2; ...; v' * Hnobj].
@@ -14,6 +10,10 @@ function [vHx, vHcount, vHundef] = vheval(vH, x, v, iswarning, opts)
 % opts are the optimization options.
 %
 % The result is always of size (m x nobj x n) even if m = 1.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 [mx, n] = size(x); % m is the number of individuals and n is the number of variables.
 mv = size(v, 1);

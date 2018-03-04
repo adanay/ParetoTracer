@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [vHx, vHcount, vHundef, vHapprox,... 
           Hx, Hcount, Hundef, Happrox, Hident, Lx, Lmodif,... 
           fx, fcount, Jx, Jcount, Jundef] =...
@@ -50,6 +46,10 @@ function [vHx, vHcount, vHundef, vHapprox,...
 % (after being calculated using one of the vec eval functions).
 % Hx (if entered) is assumed to be of size (m x n x n x nobj) even if m = 1 
 % (after being calculated using one of the vec eval functions).
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 forcehess = forcehess && nargout > 4;
 

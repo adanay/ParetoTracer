@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [Jx, Jcount, Jundef] = jeval(J, x, iswarning, opts)
 % Vectorized Jacobian function evaluation.
 % Each row of x is considered an individual to be evaluated.
@@ -12,6 +8,10 @@ function [Jx, Jcount, Jundef] = jeval(J, x, iswarning, opts)
 %
 % The result is always of size (m x nobj x n) even if m = 1.
 % The result of J(x) is assumed to be (nobj x n) if m = 1.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 Jcount = 0;
 Jundef = false;

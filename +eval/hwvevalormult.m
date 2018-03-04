@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [Hwvx, Hwvcount, Hwvundef,... 
           Hwx, Hwcount, Hwundef,... 
           vHx, vHcount, vHundef,... 
@@ -28,6 +24,10 @@ function [Hwvx, Hwvcount, Hwvundef,...
 % (after being calculated using one of the vec eval functions).
 % vHx (if entered) is assumed to be of size (m x nobj x n) even if m = 1 
 % (after being calculated using one of the vec eval functions).
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 forcehess = forcehess && nargout > 9;
 

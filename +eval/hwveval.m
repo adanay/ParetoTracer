@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [Hwvx, Hwvcount, Hwvundef] = hwveval(Hwv, x, w, v, iswarning, opts)
 % Vectorized Hessian multiply function evaluation.
 % Hwv = (H1 * w1 + H2 * w2 + ... + Hnobj * wnobj) * v.
@@ -15,6 +11,10 @@ function [Hwvx, Hwvcount, Hwvundef] = hwveval(Hwv, x, w, v, iswarning, opts)
 % opts are the optimization options.
 %
 % The result is always of size (m x n) even if m = 1.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 [mx, n] = size(x); % m is the number of individuals and n is the number of variables.
 mw = size(w, 1); 

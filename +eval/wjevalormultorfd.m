@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [wJx, wJcount, wJundef, wJapprox,...
          Jx, Jcount, Jundef, Japprox,...
          wfx, wfcount, fx, fcount] = wjevalormultorfd(...
@@ -31,6 +27,10 @@ function [wJx, wJcount, wJundef, wJapprox,...
 % (after being calculated using one of the vec eval functions).
 % Jx (if entered) is assumed to be of size (m x obj x n) even if m = 1 
 % (after being calculated using one of the vec eval functions).
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 forcejac = forcejac && nargout > 3;
 

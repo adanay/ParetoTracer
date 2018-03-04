@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [Jx, Jcount, Jundef, Japprox, fx, fcount] = jevalorfd(J, f, x, fx, lb, ub, iswarning, opts)
 % Vectorized Jacobian function evaluation.
 % If J is empty, finite differences (FD) are used.
@@ -19,6 +15,10 @@ function [Jx, Jcount, Jundef, Japprox, fx, fcount] = jevalorfd(J, f, x, fx, lb, 
 % The result of J(x) is assumed to be (nobj x n) if m = 1.
 % fx (if entered) is assumed to be of size (m x obj) even if m = 1 
 % (after being calculated using one of the vec eval functions).
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 Jcount = 0;
 fcount = 0;

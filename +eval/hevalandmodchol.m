@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [Hx, Hcount, Hundef, Lx, Lmodif] = hevalandmodchol(H, x, iswarning, opts)
 % Vectorized Hessian function evaluation plus a Modified Cholesky 
 % decomposition.
@@ -17,6 +13,10 @@ function [Hx, Hcount, Hundef, Lx, Lmodif] = hevalandmodchol(H, x, iswarning, opt
 %
 % The result is always of size (m x n x n x nobj) even if m = 1.
 % The result of H(x) is assumed to be (n x n x nobj) if m = 1.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 Lx = [];
 Lmodif = [];

@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [wfx, wfcount, fx, fcount, fundef] = wfeval(f, x, fx, w, iswarning, opts)
 % Vectorized objective multiply function evaluation.
 % wf = w' * f.
@@ -15,6 +11,10 @@ function [wfx, wfcount, fx, fcount, fundef] = wfeval(f, x, fx, w, iswarning, opt
 %
 % The result is always of size (m x 1).
 % The result of wJ(x) is assumed to be (1 x n) if m = 1.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 fcount = 0;
 fundef = false;

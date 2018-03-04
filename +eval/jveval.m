@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [Jvx, Jvcount, Jvundef] = jveval(Jv, x, v, iswarning, opts)
 % Vectorized Jacobian multiply function evaluation.
 % Jv = J * v.
@@ -15,6 +11,10 @@ function [Jvx, Jvcount, Jvundef] = jveval(Jv, x, v, iswarning, opts)
 %
 % The result is always of size (m x nobj) even if m = 1.
 % The result of Jv(x) is assumed to be (nobj x 1) if m = 1.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 Jvcount = 0;
 Jvundef = false;

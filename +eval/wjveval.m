@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [wJvx, wJvcount, wJvundef] = wjveval(wJv, x, w, v, iswarning, opts)
 % Vectorized Jacobian multiply function evaluation.
 % wJv = w' * J * v.
@@ -15,6 +11,10 @@ function [wJvx, wJvcount, wJvundef] = wjveval(wJv, x, w, v, iswarning, opts)
 % opts are the optimization options.
 %
 % The result is always of size (m x 1).
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 wJvcount = 0;
 wJvundef = false;

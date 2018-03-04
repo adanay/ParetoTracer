@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [fx, fcount, fundef] = feval(f, x, iswarning, opts)
 % Vectorized objective function evaluation.
 % Each row of x is considered an individual to be evaluated.
@@ -11,6 +7,10 @@ function [fx, fcount, fundef] = feval(f, x, iswarning, opts)
 % opts are the optimization options.
 %
 % The result is always of size (m x nobj) even if m = 1.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 fcount = 0;
 fundef = false;

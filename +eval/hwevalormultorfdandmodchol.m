@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [Hwx, Hwcount, Hwundef, Hwapprox, Lwx, Lwmodif,... 
           Hx, Hcount, Hundef, Happrox, Hident,...
           wfx, wfcount, fx, fcount,...
@@ -50,6 +46,10 @@ function [Hwx, Hwcount, Hwundef, Hwapprox, Lwx, Lwmodif,...
 % (after being calculated using one of the vec eval functions).
 % Hx (if entered) is assumed to be of size (m x n x n x nobj) even if m = 1 
 % (after being calculated using one of the vec eval functions).
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 Lwx = [];
 Lwmodif = [];

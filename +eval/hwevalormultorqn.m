@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [Hwx1, Hwcount, Hwundef, Hwapprox,... 
           Hx1, Hcount, Hundef, Happrox, Hident] =... 
   hwevalormultorqn(Hw, H, x1, Jx1, Hx1, x0, Jx0, Hx0, w, iswarning, forcehess, formident, opts)
@@ -33,6 +29,10 @@ function [Hwx1, Hwcount, Hwundef, Hwapprox,...
 % if m = 1 (after being calculated using one of the vec eval functions).
 % Hx1 (and Hx0) (if entered) is assumed to be of size (m x n x n x nobj)  
 % even if m = 1 (after being calculated using one of the vec eval functions).
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 forcehess = forcehess && nargout > 4;
 

@@ -1,7 +1,3 @@
-% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
-% This file is subject to the terms and conditions defined in
-% the file 'LICENSE.txt', which is part of this source code package.
-
 function [Hwx, Hwcount, Hwundef, Lwx, Lwmodif] = hwevalandmodchol(Hw, x, w, iswarning, opts)
 % Vectorized Hessian multiply function evaluation plus a modified Cholesky 
 % decomposition.
@@ -20,6 +16,10 @@ function [Hwx, Hwcount, Hwundef, Lwx, Lwmodif] = hwevalandmodchol(Hw, x, w, iswa
 % opts are the optimization options.
 %
 % The result is always of size (m x n x n) even if m = 1.
+
+% Copyright (c) 2018 Adanay Martín & Oliver Schütze.
+% This file is subject to the terms and conditions defined in
+% the file 'LICENSE.txt', which is part of this source code package.
 
 Lwx = [];
 Lwmodif = [];
