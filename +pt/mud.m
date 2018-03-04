@@ -20,6 +20,9 @@ m = size(d, 1);
 W = [J * Mu; [ones(1, nobj), zeros(1, N - nobj)]];
 D = [d'; zeros(1, m)];
 
+% W = J * Mu;
+% D = d';
+
 o.RECT = true;
 [mu, R] = linsolve(W, D, o);
 % if R < nobj % this is not correct: R may be the cond no

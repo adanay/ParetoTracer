@@ -24,6 +24,7 @@ drawnow
 x0 = ps(randi(m), :);
 
 opts.PCStepObj = 0.04;
+opts.PCPlotMode = 'iter';
 
 tic
 [result, stats, EXITFLAG] = pt.trace(objfun, x0, [], lb, ub, lincon, nonlcon, multfun, opts);

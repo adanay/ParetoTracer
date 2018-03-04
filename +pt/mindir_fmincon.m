@@ -126,8 +126,8 @@ dirargout = {x, fval, EXITFLAG, output, lambda};
         vHxi = vHx(i, :);
         normvHxi = norm(vHxi);
         if normvHxi > 0 && vHvx(i) < 0
-          %vHvx(i) = (vHxi * vHxi') * normv / normvHxi;
-          vHvx(i) = v' * v;
+          vHvx(i) = (vHxi * vHxi') * normv / normvHxi;
+          %vHvx(i) = v' * v;
         end
       end
     end

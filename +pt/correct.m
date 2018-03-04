@@ -75,6 +75,10 @@ itcs = itcs(1 : count);
       return
     end
     
+    if ~isempty(it0.x) && any(abs(it1.fx - itc.fx) < eps)
+      return
+    end
+    
     % stop condition (output function)
     if exist('pcoutfcn', 'var') && ~isempty(pcoutfcn)
       [stop, discard, it1, ~, itc, stats] = pcoutfcn('CORRECT', it0, it1, itp, itc, result, objfun, x0, funvals0, lb, ub, lincon, nonlcon, multfun, opts, stats, []);   
